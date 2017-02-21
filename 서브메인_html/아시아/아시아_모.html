@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" id="Viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>여행가게 옥션</title>
+    <!--[if lt IE 9]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script><![endif]-->
+    <!--[if lt IE 8]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script><![endif]-->
+    <!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script><![endif]-->
+    <script type="text/javascript" src="http://script.auction.co.kr/Common/library/jquery/jquery-2.0.3.min.js?ver=2015010714"></script>
+    <script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/07C0B575AE/resizeFrame.js "></script>
+    <link type="text/css" href="http://eventimg.auction.co.kr/md/auction/0923379F49/m.jquery.bxslider.css" rel="stylesheet">
+    <link type="text/css" href="http://eventimg.auction.co.kr/md/auction/0923379F49/m.tour.css" rel="stylesheet">
+    <script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/0923379F49/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/0923379F49/m.jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/0923379F49/m.tour.js"></script>
+
+    <style type="text/css">     
+        .wrap_tour .header_wrap2{position: relative;}
+        #p_gnb{height:70px;position: relative;z-index: 9998}
+        #p_gnb .gnb_ifram{position: relative;top:0 !important;}
+        #p_gnb .gnb_ifram.fixed{position:fixed;width: 100%;}
+        .sns_set{z-index: 9999; position: absolute; top:11%;}
+        .sub_top{position: relative; width:100%;}
+    </style>
+    <script>
+
+        /*2017.01.13 A.CD 추가*/
+        var naviH = 70;
+        $(document).ready(function(){            
+            $(window).scroll(function(){
+                var num = 0,
+                    aboveHeight = $("#p_gnb").offset().top,
+                    aboveHeight2 = $(".wrap_tour .sns_set").offset().top,
+                    locate = $(window).scrollTop();
+                (locate >= aboveHeight) ? $(".gnb_ifram").addClass('fixed') : $(".gnb_ifram").removeClass('fixed');
+                (locate >= aboveHeight2-70) ? $(".wrap_tour .sns_set").css("z-index","0") : $(".wrap_tour .sns_set").css("z-index","9999");
+            });
+        });
+
+    </script>  
+</head>
+
+<body>
+<div class="wrap wrap_tour">
+
+     <!--GNB-->
+     <div id="p_gnb">
+        <div class="gnb_ifram">
+            <iframe src="http://eventimg.auction.co.kr/md/auction/0923379F49/m_sub_com_gnb.html" width="100%" height="140" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowTransparency="true"></iframe>          
+        </div> 
+    </div>
+    <!--//GNB--> 
+
+    
+    
+    <!--서브top-->
+    <div class="sub_top">
+        <!--공유하기-->
+        <div class="sns_set">
+            <iframe src="http://eventv2.auction.co.kr/Event3/2016/05/67/EDRA520_BOOKSNS/msns.aspx?GROUPID=20170106" width="100%" height="300" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowTransparency="true"></iframe>
+        </div>
+
+
+        <img src="http://eventimg.auction.co.kr/md/auction/0923379F49/m_sub_top_asia.jpg" alt="아시아"/>
+    </div>
+    <!--//서브top-->
+    <!--subMain-->
+    <div class="sub_main">
+        <div class="link_iframe" style="position:relative;width:100%;">
+
+            <!--<iframe src="http://eventv2.auction.co.kr/Event3/Stable/TravelStore/mifrmSubList.aspx?INDEX=2" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowTransparency="true" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>-->
+            <iframe src="http://eventv2.auction.co.kr/Event3/Stable/TravelStore/mifrmSubList.aspx?INDEX=2" width="100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowTransparency="true" style=""></iframe>
+        </div>
+    </div>
+    <!--//subMain-->
+
+
+</div>
+</body>
+</html>

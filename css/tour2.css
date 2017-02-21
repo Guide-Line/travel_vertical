@@ -1,0 +1,158 @@
+@charset "utf-8";
+/*����Ʈ*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* {-webkit-text-size-adjust:none;}
+@charset "euc-kr";
+/*Vertical �� css*/
+html, body{width:100%; height:auto;background:none;}
+body{font:normal normal 12px/1.5 dotum, "����", gulim, arial; color:#828282;}
+body, ol, ul, li, dl, dt, dd, blockquote, fieldset, h1, h2, h3, h4, h4, h5, h6, pre, form, p, div{margin:0; padding:0; font-family:dotum;}
+address, caption, cite, code, dfn, em, strong, textarea, var	{font-style:normal; font-weight:normal;}
+b, strong{font-weight:bold;}
+a{color:#828282; border:0; text-decoration:none;}
+a:hover {text-decoration:none;}
+ol, ul, li{list-style-type:none;}
+li{vertical-align:middle; line-height:1;}
+img {vertical-align:top;border:0;}
+.hide{overflow:hidden; position:absolute; top:0; left:0; width:0; height:0; font-size:0; line-height:0;}
+/*common*/
+
+.mt40{margin-top:40px;}
+.mobile_hide{display:block;}
+.mobile_show{display:none;}
+
+.wrap_tour{position: relative;margin:0 auto;width:100%;max-width:2000px;height:100%;background:none;}
+/*header*/
+.wrap_tour .header_wrap{position:relative;width:100%;height:65px;background: #34353d;z-index:99999}
+.wrap_tour .header_wrap .header{position:relative; width:1200px;margin:0 auto;}
+.wrap_tour .header_wrap .header h1{padding-top:24px;margin-left:90px;}
+.wrap_tour .header_wrap .header .depth1{position: absolute;top:0;left:240px;z-index: 2;}
+.wrap_tour .header_wrap .header .depth1 li{float:left;height:65px;}
+.wrap_tour .header_wrap .header .depth1>li{position:relative;text-align: center;width:240px;background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/bar_h8.gif') no-repeat right 30px;}
+.wrap_tour .header_wrap .header .depth1>li>a{display: block;width:100%;padding:25px 0;}
+.wrap_tour .header_wrap .header .depth1>li:last-child{background:none;}
+.wrap_tour .header_wrap .header .depth1 li .depth2{position:absolute;top:65px;left:0;height:52px;background:#f2f2f2;width:962px;display:none;}
+.wrap_tour .header_wrap .header .depth1 li .depth2 li{padding:18px 55px;background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/bar_h82.gif') no-repeat right 20px;}
+.wrap_tour .header_wrap .header .depth1 li .depth2 li.on a{border-bottom:2px solid #424343;padding-bottom:3px;}
+.wrap_tour .header_wrap .header .depth1 li .depth2 li:hover a{border-bottom:2px solid #424343;padding-bottom:3px;}
+.wrap_tour .header_wrap .header .depth1 li .depth2 li:last-child{background: none;}
+.wrap_tour .header_wrap .header .depth1>li:hover{background: #272830}
+.wrap_tour .header_wrap .header .depth1>li:hover .depth2{display: block}
+/*main slider*/
+.wrap_tour .main_wrap{position: relative;width:100%;min-width:973px;height:773px;overflow: hidden;margin-top:65px;}
+.wrap_tour .main_wrap .main_slider{position: absolute;top:0;left:50%;width:2000px;height:763px;margin-left:-1000px;}
+.wrap_tour .main_slider .title{position:absolute;top:220px;left:50%;margin-left:-231px;width:462px;text-align: center;z-index: 2;}
+.wrap_tour .main_slider .bt_more{position:absolute;left:50%;bottom:180px;margin-left:-98px; display:inline-block;
+                        background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/bg_bt.png') no-repeat;width:196px;height:56px;color:#fff;text-align: center;}
+.wrap_tour .main_slider .bt_more span{display:inline-block;font-weight: 500;padding: 18px 50px 18px 0;background: url('http://eventimg.auction.co.kr/md/auction/0923379F49/ar_st01.png') no-repeat right center;}
+.wrap_tour .main_slider{height:763px} 
+.wrap_tour .main_slider .bx-wrapper .bx-controls-direction a {
+    position: absolute;
+    top: 50%;
+    margin-top: -51px;
+    outline: 0;
+    width: 42px;
+    height: 103px;
+    text-indent: -9999px;
+    z-index: 9;
+}
+.wrap_tour  .main_slider .bx-wrapper .bx-prev {
+    left: 418px;
+    background: url(http://eventimg.auction.co.kr/md/auction/0923379F49/ar_main_left.png) no-repeat ;
+}
+.wrap_tour .main_slider .bx-wrapper .bx-next {
+    right: 418px;
+    background: url(http://eventimg.auction.co.kr/md/auction/0923379F49/ar_main_right.png) no-repeat ;
+}
+/*sub1*/
+.sub1{margin-top:50px;}
+.sub1 .sub1_inner{position:relative;width:1200px;margin:0 auto;}
+.sub1 .sub1_inner a{display:block;width:100%;height: 100%;}
+.sub1 .sub1_inner .item{position: relative}
+.sub1 .sub1_inner .item1{width:800px;height: 324px;overflow: hidden;}
+.sub1 .sub1_inner .item2{width:800px;height: 324px;overflow: hidden;}
+.sub1 .sub1_inner .item3{position:absolute;top:0;right:0;width:400px;height:972px;verflow: hidden;}
+.sub1 .sub1_inner .item1:hover .itemborder1{position:absolute;top:0;left:0;display:block;width:800px;height: 324px;background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/lineBox_essay01.png') no-repeat;z-index: 2}
+.sub1 .sub1_inner .item2:hover .itemborder2{position:absolute;top:0;left:0;display:block;width:800px;height: 324px;background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/lineBox_essay01.png') no-repeat;z-index: 2}
+.sub1 .sub1_inner .item3:hover .itemborder3{position:absolute;top:0;left:0;display:block;width:400px;height: 972px;background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/lineBox_essay02.png') no-repeat;z-index: 2}
+.sub1 .sub1_inner .item4{margin-top:50px;margin-left:209px;}
+/*sub2*/
+.wrap_tour .sub2{position: relative;width:100%;min-width:1200px;height:858px;background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/bg_tour_slide1.jpg') no-repeat top center; overflow: hidden;margin-top:50px;}
+.wrap_tour .sub2 .title{padding-top:49px;width:100%;text-align: center;}
+.wrap_tour .sub2 .sub2_slider{width:1016px;margin:0 auto;margin-top:30px;}
+.wrap_tour .sub2 .bx-wrapper .bx-controls-direction a {
+    position: absolute;
+    top: 50%;
+    margin-top: -51px;
+    outline: 0;
+    width: 42px;
+    height: 103px;
+    text-indent: -9999px;
+    z-index: 9;
+}
+.wrap_tour .sub2 .bx-wrapper .bx-prev {
+    left: -80px;
+    background: url(http://eventimg.auction.co.kr/md/auction/0923379F49/ar_sub2_left.png) no-repeat ;
+}
+.wrap_tour .sub2 .bx-wrapper .bx-next {
+    right: -80px;
+    background: url(http://eventimg.auction.co.kr/md/auction/0923379F49/ar_sub2_right.png) no-repeat ;
+}
+.wrap_tour .sub2 .bx-wrapper .bx-pager{bottom:40px;}
+/*sub3*/
+.wrap_tour .sub3{position:relative;}
+.wrap_tour .sub3 .sub3_inner{position:relative;padding-top:50px;height:450px; width:1200px;margin:0 auto;overflow: hidden;}
+.wrap_tour .notice_wrap{width:520px;}
+.wrap_tour .notice_wrap .title{position:relative;padding-bottom:20px;border-bottom: 1px solid #d4d4d4 }
+.wrap_tour .notice_wrap .title .bt_plus{position: absolute;top:0;right:0}
+.wrap_tour .notice_wrap  ul{margin-top:24px;}
+.wrap_tour .notice_wrap  ul li{padding-left:11px;background: url('http://eventimg.auction.co.kr/md/auction/0923379F49/dot.gif') no-repeat 3px 8px;font-size:13px;color:#999999;line-height: 22px;margin-bottom:28px;}
+.wrap_tour .notice_wrap  ul li a{font-size:15px; color:#424343;font-weight: 600;display:block;word-break: keep-all;}
+.wrap_tour .banner_slider{position: relative;width:628px;height:408px;}
+.wrap_tour .banner_slider .bx-wrapper .bx-pager{width:20%;margin-left:80%}
+.wrap_tour .banner_slider .bx-wrapper .bx-pager.bx-default-pager a{width:8px;height:8px;}
+
+/*�������*/
+.sub_top{width:100%;height:661px;min-width: 1200px;margin-top:65px;}
+.bg_korea{background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/sub_bg_korea.jpg') no-repeat top center;}
+.bg_asia{background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/sub_bg_asia.jpg') no-repeat top center;}
+.bg_europe{background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/sub_bg_europe.jpg') no-repeat top center;}
+.bg_jeju{background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/sub_bg_jeju.jpg') no-repeat top center;}
+.bg_celeb{background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/sub_bg_celeb.jpg') no-repeat top center;}
+.bg_essay{background:url('http://eventimg.auction.co.kr/md/auction/0923379F49/sub_bg_essay.jpg') no-repeat top center;}
+.sub_main{width:100%;margin: 0 auto;/*margin-top:50px;*/}
+.sub_main .link{margin-bottom: 150px;}
+.sub_main .link ul{overflow: hidden;width:1280px;margin:0 auto;}
+.sub_main .link ul li{float:left;margin-bottom: 20px;}
+.sub_main .link ul li{float:left;margin:0 10px;margin-bottom: 20px;}
+
+/*���� ��������*/
+.tour_cont{text-align: center;margin-bottom: 100px}
+
+/*����������*/
+.gnb_ifram {position:fixed;;top:85px;left:0;width:100%;height: 65px;;z-index: 9999;background:none}
+.gnb_ifram iframe{height: 114px!important;width:100%;}
+
+.main_iframe01{position:relative;;width:1200px;height: 1177px;margin:0 auto;}
+.main_iframe01 iframe{width:100%;height: 100%; height:1127px !important;}
+
+.notice_ifram{position:relative;;width:520px;height: 407px;}
+.notice_ifram iframe{width:100%;height: 100%;}
+
+.sub_main_ifram{position:relative;;width:1200px;margin:0 auto; padding-top:50px;}
+.sub_main_ifram iframe{width:100%;height: 100%;}
+
+.banner_ifram{position: absolute;top:50px;right:0;width:628px;height:408px;}
+.banner_ifram iframe{width:100%;height: 100%;}
+/*SNS �����ϱ�*/
+ .pc_sns {
+    position: absolute;
+    left: 50%;
+    top: 70px;
+    z-index: 9999;
+    margin-left: 550px;
+    width: 56px;
+    overflow: hidden;
+     background:none;
+}
+.main_wrap .pc_sns{ top:5px;}
