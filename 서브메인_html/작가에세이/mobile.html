@@ -8,13 +8,16 @@
 	<!--[if lt IE 9]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script><![endif]-->
 	<!--[if lt IE 8]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script><![endif]-->
 	<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script><![endif]-->
+	<link rel="stylesheet" href="http://eventimg.auction.co.kr/md/auction/0868D4BD4A/swiper.min.css">
 	<script type="text/javascript" src="http://script.auction.co.kr/Common/library/jquery/jquery-2.0.3.min.js?ver=2015010714"></script>
-	<script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/07C0B575AE/resizeFrame.js "></script>
-	<link type="text/css" href="http://eventimg.auction.co.kr/md/auction/0923379F49/m.jquery.bxslider.css" rel="stylesheet">
+	<!-- <script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/07C0B575AE/resizeFrame.js "></script> -->
+	<!-- <link type="text/css" href="http://eventimg.auction.co.kr/md/auction/0923379F49/m.jquery.bxslider.css" rel="stylesheet"> -->
+
 	<link type="text/css" href="http://eventimg.auction.co.kr/md/auction/0923379F49/m.tour.css" rel="stylesheet">
 	<script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/0923379F49/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/0923379F49/m.jquery.bxslider.min.js"></script>
+	<!-- <script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/0923379F49/m.jquery.bxslider.min.js"></script> -->
 	<script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/0923379F49/m.tour.js"></script>
+	<script src="http://eventimg.auction.co.kr/md/auction/0868D4BD4A/swiper.min.js"></script>
 	<style type="text/css">		
 		.wrap_tour .header_wrap2{position: relative;}
         #p_gnb{height:70px;position: relative;z-index: 9998}
@@ -22,6 +25,15 @@
         #p_gnb .gnb_ifram.fixed{position:fixed;width: 100%;}
        .sns_set{z-index: 9999; position: absolute; top:11%;}
         .sub_top{position: relative; width:100%;}
+
+		/*2017.02.22 A.CD 추가*/
+		#p_essay .swiper-container{width: 100%;position: relative;}
+		#p_essay .swiper-button-prev{left:0;}
+		#p_essay .swiper-button-next{right:0;}
+		#p_essay .swiper-button-black{width: 40px;height: 80px;background-position: 50%; background-size:30%;margin-top:-40px;background:none;}
+		#p_essay .swiper-pagination{bottom:4%;width: 100%;}
+		#p_essay .swiper-pagination span{border:2px solid #fff;background: #fff;margin:0 1.5%;}
+		#p_essay .swiper-pagination span.swiper-pagination-bullet-active{background: transparent;}	        
 	</style>
 	<script>
 
@@ -50,14 +62,50 @@
         </div> 
     </div>
     <!--//GNB--> 
-	
 	<!--서브top-->
-	<div class="sub_top">
+	<div id="p_essay" class="sub_top">
 	<!--공유하기-->
-	<div class="sns_set">
-		<iframe src="http://eventv2.auction.co.kr/Event3/2016/05/67/EDRA520_BOOKSNS/msns.aspx?GROUPID=20170106" width="100%" height="300" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowTransparency="true"></iframe>
-	</div>
-		<img src="http://eventimg.auction.co.kr/md/auction/0923379F49/m_sub_top_essay.jpg" alt="에세이"/>
+		<div class="sns_set">
+			<iframe src="http://eventv2.auction.co.kr/Event3/2016/05/67/EDRA520_BOOKSNS/msns.aspx?GROUPID=20170106" width="100%" height="300" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowTransparency="true"></iframe>
+		</div>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<!--  -->
+				<div class="swiper-slide">
+					<img src="http://eventimg.auction.co.kr/md/auction/0923D8B8C2/m_top_img1_1.jpg" alt="">
+					<img src="http://eventimg.auction.co.kr/md/auction/0923D8B8C2/m_top_img1_2.jpg" alt="">
+					<img src="http://eventimg.auction.co.kr/md/auction/0923D8B8C2/m_top_img1_3.jpg" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img src="http://eventimg.auction.co.kr/md/auction/0923D8B8C2/m_top_img2_1.jpg" alt="">
+					<img src="http://eventimg.auction.co.kr/md/auction/0923D8B8C2/m_top_img2_2.jpg" alt="">
+					<img src="http://eventimg.auction.co.kr/md/auction/0923D8B8C2/m_top_img2_3.jpg" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img src="http://eventimg.auction.co.kr/md/auction/0923D8B8C2/m_top_img3_1.jpg" alt="">
+					<img src="http://eventimg.auction.co.kr/md/auction/0923D8B8C2/m_top_img3_2.jpg" alt="">
+					<img src="http://eventimg.auction.co.kr/md/auction/0923D8B8C2/m_top_img3_3.jpg" alt="">
+				</div>
+				<!-- //  -->
+			</div>
+			<!-- Add Arrows -->
+			<div class="swiper-button-prev swiper-button-black"><img src="http://eventimg.auction.co.kr/md/auction/0923D8B8C2/m_slide_prev.png" alt=""></div>
+			<div class="swiper-button-next swiper-button-black"><img src="http://eventimg.auction.co.kr/md/auction/0923D8B8C2/m_slide_next.png" alt=""></div>
+		</div>
+		<script>
+			var mySwiper = new Swiper('#p_essay .swiper-container', {
+				autoplay : 3000,
+				nextButton: '#p_essay .swiper-button-next',
+				prevButton: '#p_essay .swiper-button-prev',
+				pagination: '#p_essay .swiper-pagination',
+				paginationClickable: true,
+				loop: true,
+				autoHeight: true,
+				spaceBetween: 0,
+				autoplayDisableOnInteraction : false
+			});			
+		</script>
+		<!-- <img src="http://eventimg.auction.co.kr/md/auction/0923379F49/m_sub_top_essay.jpg" alt="에세이"/> -->
 	</div>
 	<!--//서브top-->
 	<!--subMain-->
