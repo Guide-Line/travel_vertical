@@ -1,0 +1,54 @@
+@charset "euc-kr";
+
+*{margin:0;padding:0; font-family:Roboto, Droid Sans, Helvetica, AppleSDGothicNeo, 'Apple SD »êµ¹°íµñ Neo', Apple-Gothic, '¾ÖÇÃ°íµñ', 'Tahoma', 'dotum', 'µ¸¿ò', 'gulim', '±¼¸²', sans-serif;}
+img{border:0;vertical-align:top}
+li{list-style:none}
+body{background: transparent;}
+#p_header{margin:0 auto;position:relative ; max-width:640px; background-color: #000;}
+#p_header img{width:100%}
+#p_header .menu2 .slider_wrap{position:relative;overflow:hidden;background:#ffffff;}
+#p_header .menu2 .swiper-container {overflow:hidden;position:relative; width:85%; }
+#p_header .menu2 .swiper-wrapper {position: relative; width:100%;height:100%;background-color: #ffffff;}
+#p_header .menu2 .swiper-slide {overflow:hidden;position:relative}
+#p_header .menu2 .swiper-wrapper li img{width:90% !important; padding-bottom: 19%;}
+#p_header .menu2 .swiper-pagination{width:100%;text-align:center;position:absolute;left:0;bottom:5%}
+#p_header .menu2 .swiper-pagination-bullet{width:6px;height:6px;margin:0 5px;background:#000;border:2px #000 solid;border-radius:100%;opacity:1}
+#p_header .menu2 .swiper-pagination-bullet-active{border:2px #000 solid;opacity:1;background:transparent}
+#p_header .menu2 .swiper-button-prev{opacity:0.8;width:40px;height:40px;z-index:10;top:50%;background-color:transparent;background-size:30px 20px;margin-top:-20px;left:-1%}
+#p_header .menu2 .swiper-button-next{opacity:0.8;width:40px;height:40px;z-index:10;top:50%;background-color:transparent;background-size:30px 20px;margin-top:-20px;right:-1%}
+
+
+.menu2 .swiper-wrapper li{background-size:1px 100%;padding-left: 1px;}
+.menu2 .swiper-wrapper li img{width:99% !important;}
+
+.tab{overflow: hidden; position: relative; z-index: 100; }
+.tab li{ width:25%; float: left; list-style: none;}
+.tab li img{ width:100%; vertical-align: top;}
+
+.menu2 .slider_wrap{ padding-top: 3% !important;}
+
+
+.menu3{display: block;}
+.menu3 .slider_wrap{position:relative;overflow:hidden;background:url(http://eventimg.auction.co.kr/md/auction/095E70B02A/m_3depths_bg.jpg) no-repeat center top; height:90px; }
+.menu3 .swiper-container {overflow:hidden;position:relative}
+.menu3 .swiper-wrapper {width:100%;height:100%}
+.menu3 .swiper-slide {overflow:hidden;position:relative; width:100%;  z-index: 10;}
+.menu3 .swiper-pagination{width:100%;text-align:center;position:absolute;left:0;bottom:5%; display: none;}
+.menu3 .swiper-pagination-bullet{width:6px;height:6px;margin:0 5px;background:#000;border:2px #000 solid;border-radius:100%;opacity:1}
+.menu3 .swiper-pagination-bullet-active{border:2px #000 solid;opacity:1;background:transparent}
+.menu3 .swiper-button-prev{display: none; z-index:999; opacity:0.8;width:40px;height:40px;z-index:10;top:50%;background-color:transparent;background-size:30px 20px;margin-top:-20px;left:-1%;}
+.menu3 .swiper-button-next{display: none; z-index:999; opacity:0.8;width:40px;height:40px;z-index:10;top:50%;background-color:transparent;background-size:30px 20px;margin-top:-20px;right:-1%;}
+
+.obj{
+    position: relative;}
+.obj ul{width:100%; height: 90px;/*padding-left: 8%;*/ }
+.obj ul li{list-style: none; float: left; width:49%; height: 50%; text-align: center; overflow: hidden; position: relative; /*border:1px solid red;*/}
+
+
+.obj ul li:nth-child(1) a{ font-size:15px; text-decoration: none; color:#f2ffb9; display: block; padding: 5px;  width:100px;  border:1px solid #a8c529;border-radius: 20px;position: absolute; right:7px;bottom:5px; }
+.obj ul li:nth-child(2) a{ font-size:15px; text-decoration: none; color:#f2ffb9; display: block; padding: 5px;  width:100px;  border:1px solid #a8c529;border-radius: 20px;position: absolute;  left:7px;bottom:5px; }
+.obj ul li:nth-child(3) a{ font-size:15px; text-decoration: none; color:#f2ffb9; display: block; padding: 5px;  width:100px;  border:1px solid #a8c529;border-radius: 20px;position: absolute; right:7px;top:5px; }
+.obj ul li:nth-child(4) a{ font-size:15px; text-decoration: none; color:#f2ffb9; display: block; padding: 5px;  width:100px;  border:1px solid #a8c529;border-radius: 20px;position: absolute;  left:7px;top:5px; }
+
+.obj ul li a{ font-size:15px; text-decoration: none; color:#f2ffb9; display: block; padding: 5px;  width:100px;  border:1px solid yellow;border-radius: 20px;}
+.obj ul li.select a{  font-size:15px; text-decoration: none; color:#f2ffb9; display: block; padding: 5px;  width:100px;  border:1px solid yellow;border-radius: 20px;}

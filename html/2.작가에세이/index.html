@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>여행가게</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <script type="text/javascript" src="http://script.auction.co.kr/common/jquery.js"></script>
+    <link rel="stylesheet" href="http://eventimg.auction.co.kr/md/auction/08405BF42E/idangerous.swiper.css">
+    <script src="http://eventimg.auction.co.kr/md/auction/08405BF42E/idangerous.swiper.js"></script>
+
+    <script type="text/javascript">
+        window.onload = function(){
+            naviaddChild() // 네비게이션 만들기
+            //$("#p_navi").css("height",menuH);
+            enterFrameFun();
+        }
+
+        $(window).resize(function(){
+            //$("#p_navi").css("height",menuH);
+            enterFrameFun()
+        })
+        // 링크 연동
+        $(document).ready(function(){
+            var gnb_ifm = getIframeContent('navi_obj');
+
+            var naviH = $("#p_navi").height();
+
+            // when scroll
+            $(window).scroll(function(){
+                var num = 0;
+                var aboveHeight = $("#p_navi").offset().top;
+                var menuPos = new Array;
+                var menuLength = $("#p_navi_area li").length-1;
+
+                locate = $(window).scrollTop()+45;
+                locate2 = $(window).scrollTop()+45+naviH; // 마지막 네비높이
+
+
+                //scrolled down header's height
+                if (locate >= aboveHeight){
+                    $("#p_navi_area").addClass('fixed');
+                    //console.debug("네비 접기")
+                    gnb_ifm.viewMenu("n")
+                    $("#navi_obj").css("height" , 75+"px")
+                    //console.debug("$(#p_navi_area).addClass(fixed); => 네비게이션 접기")
+
+                } else {
+                    $("#p_navi_area").removeClass('fixed');
+                    //console.debug("네비 펴기")
+                    gnb_ifm.viewMenu("y")
+                    $("#navi_obj").css("height" , navi_height+"px")
+                    //console.debug("$(#p_navi_area).removeClass(fixed); => 네비게이션 펼치기")
+                }
+            });
+        })
+
+        var navi_height;
+        function naviaddChild(){
+            $("#navi_obj").attr("src" , "http://eventimg.auction.co.kr/md/auction/095E70B02A/w_gnb.html?ver=0331_4")
+            /*$("#navi_obj").attr("src" , "dev/w_gnb.html")*/
+            //console.debug("index => gnb addChild" + " : " + "dev/w_gnb.html")
+            $("#navi_obj").load(function(){
+                //console.debug("메뉴의 세로값 " + " : " + navi_height);
+                //alert("메뉴의 세로값 " + " : " + navi_height);
+            })
+        }
+        //스크롤 및 리사이즈시 호출되는 함수 :: onload 이후에 실행
+        function enterFrameFun(){
+            //prd_top = $(".prd_area").offset().top;
+            //$("#p_navi").css("height" , navi_height+"px");//네비게이션이 fixed 처리되고 난후에도 그 공간만큼 잡아줌
+        }
+        /*하단 상품 리로드 관련*/
+        function reload_prdList(seven_code){
+            //console.debug("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
+            //alert("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
+        }
+        //iframe 내부 제어함수
+        function getIframeContent(id){
+            var ifrm = document.getElementById(id);
+            return ifrm.contentWindow || ifrm.contentDocument;
+        }
+    </script>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        img{border:0;vertical-align:top;}
+        li{list-style:none;}
+        #p_header{position: relative; width:100%;}
+        #p_navi{width:100%;/*height:66px*/;position:relative;z-index:300; /*border: 1px solid red;*/}
+
+        #p_navi_cnt ul{width:980px;margin:0 auto;overflow:hidden;}
+        #p_navi_cnt ul li{width:20%;float:left;text-align:center;}
+
+        .p_cnt{position:relative; width:100%;}
+        .inc-obj-1200{position: relative; width:1200px; margin: 0 auto;}
+
+        .fixed{position:fixed;top:45px;left:0;width:100%;background:#fff;margin:0;z-index:100;}
+
+        /*비주얼이미지*/
+        #p_essay{width: 100%;max-width:2000px;margin:0 auto;position: relative;}
+        #p_essay_bg{width: 100%;height: 500px;position: relative;background-color: #fff;}
+        #p_essay_bg li{position: absolute;top:0;left:0;width: 100%;height: 100%;}
+        #p_essay_bg li.visual1{background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg1.jpg) no-repeat 50% 0;z-index: 1}
+        #p_essay_bg li.visual2{background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg2.jpg) no-repeat 50% 0;opacity: 0}
+        #p_essay_bg li.visual3{background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg3.jpg) no-repeat 50% 0;opacity: 0}
+        #p_essay_con{position: absolute;top:0;left: 50%;width: 1200px;height: 500px;margin-left:-600px;z-index: 10;}
+        #p_essay_con .top_tit{position: absolute; top:0; z-index: 10;}
+        #p_essay .swiper-button-prev{margin-left:-600px;left:50%;background:url("http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_slide_prev.png") left top no-repeat;width: 70px;  top:160px;z-index: 20;height:140px;position: absolute;cursor:pointer;}
+        #p_essay .swiper-button-next{margin-right:-600px;right:50%;background:url("http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_slide_next.png") left top no-repeat;width: 70px;top:160px;z-index: 20;height: 140px;position: absolute;cursor: pointer;}
+        #p_essay .swiper-pagination{bottom:30px;display: none}
+        #p_essay .swiper-pagination .swiper-pagination-switch{width: 8px;height: 8px;border:2px solid #fff;background-color: #fff;margin:0 9px;}
+        #p_essay .swiper-pagination .swiper-active-switch{background-color: transparent;}
+    </style>
+</head>
+<body>
+    <!--상단비주얼-->
+    <div id="p_header">
+        <div id="p_essay">
+            <ul id="p_essay_bg">
+                <li class="visual1"></li>
+                <li class="visual2"></li>
+                <li class="visual3"></li>
+            </ul>
+            <div id="p_essay_con">
+                <img class="top_tit" src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_tit.png" alt="여행가게"/>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!--  -->
+                        <div class="swiper-slide">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img1_1.jpg" alt="">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img1_2.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img2_1.jpg" alt="">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img2_2.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img3_1.jpg" alt="">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img3_2.jpg" alt="">
+                        </div>
+                        <!-- //  -->
+                    </div>
+                </div>
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <script>
+                var mySwiper = new Swiper('#p_essay .swiper-container', {
+                    simulateTouch:false,
+                    pagination:'#p_essay .swiper-pagination',
+                    paginationClickable:true,
+                    loop:true,
+                    autoplay:3000,
+                    calculateHeight:true,
+                    autoplayDisableOnInteraction : true,
+                    onSlideChangeStart : function(mySwiper){
+                        // mySwiper.stopAutoplay();
+                        // mySwiper.startAutoplay();
+                        changeBg(getSlideDataIndex(mySwiper));
+                    }
+                });
+                $('#p_essay .swiper-button-prev').bind('click', function(e){
+                    e.preventDefault();
+                    // Autoplay True일때
+                    mySwiper.stopAutoplay();
+                    mySwiper.swipePrev();
+                    mySwiper.startAutoplay();
+                });
+                $('#p_essay .swiper-button-next').bind('click', function(e){
+                    e.preventDefault();
+                    // Autoplay True일때
+                    mySwiper.stopAutoplay();
+                    mySwiper.swipeNext();
+                    mySwiper.startAutoplay();
+                });
+                function changeBg(idx){
+                    $("#p_essay_bg li").eq(idx).stop(true,false).animate({"opacity":1},500);
+                    $("#p_essay_bg li").eq(idx).siblings().stop(true,false).animate({"opacity":0},500);
+                }
+                function getSlideDataIndex(swipe){
+                    var activeIndex = swipe.activeIndex;
+                    var slidesLen = swipe.slides.length;
+                    if(swipe.params.loop){
+                        switch(swipe.activeIndex){
+                            case 0:
+                                activeIndex = slidesLen-3;
+                                break;
+                            case slidesLen-1:
+                                activeIndex = 0;
+                                break;
+                            default:
+                                --activeIndex;
+                        }
+                    }
+                    return  activeIndex;
+                }
+            </script>
+        </div>
+    </div>
+    <!--상단비주얼 여기까지-->
+
+    <!--네비게이션-->
+    <div id="p_navi">
+        <div id="p_navi_area">
+            <iframe id="navi_obj" src="" width="100%"   scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+        </div>
+    </div>
+    <!--네비게이션 여기까지-->
+
+
+    <div id="p_section" class="p_cnt">
+        <div class="inc-obj-1200">
+            <!--하단 컨텐츠 영역-->
+
+
+
+
+
+            <!--여기까지-->
+        </div>
+    </div>
+
+
+</body>
+</html>

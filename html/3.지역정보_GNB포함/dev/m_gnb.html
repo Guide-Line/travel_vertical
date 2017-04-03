@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="euc-kr">
+    <title>옥션 - 모바일 쇼핑은 옥션</title>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
+    <meta http-equiv="cleartype" content="on"/>
+    <link rel="stylesheet" href="http://eventimg.auction.co.kr/md/auction/0868D4BD4A/swiper.min.css">   
+    <script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/086A428A1C/jquery-1.11.3.min.js"></script>
+
+    <script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/07C0B575AE/resizeFrame.js"></script>
+    <script src="http://eventimg.auction.co.kr/md/auction/0868D4BD4A/swiper.min.js"></script>
+
+    <link rel="stylesheet" href="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_gnb.css?ver=0331_2"/>
+
+
+     <script>
+        document.domain ="auction.co.kr"
+
+        var n;
+        var nn;
+        var nnn;
+        var swiper01; //2뎁스
+        var swiper02; //3뎁스
+        function init(){
+            //console.debug("gnb => init() 실행")
+
+            var str = parent.location.href;
+
+            pageNum = str.split("pageNum=")[1].substr(0,7)
+            //selectStr = str.split("select=")[1].substr(0,1)
+            //console.debug("pageNum " + " : " +  pageNum) // 01 01 000  7자리의 코드를 가져온다
+            //console.debug("pageNum 1뎁스" + " : " +  pageNum.substr(0,2)) // 01 1뎁스
+            //console.debug("pageNum 2뎁스" + " : " +  pageNum.substr(2,2)) // 01 2뎁스
+            //console.debug("pageNum 3뎁스" + " : " +  pageNum.substr(4,3)) // 000  3뎁스
+            //console.debug("3뎁스 까지 활성화 하기 관련  selectStr  : " + selectStr) //3뎁스 활성화 여부 체크
+            n = parseInt(pageNum.substr(0,2),10);
+            nn = parseInt(pageNum.substr(2,2),10);
+            nnn = parseInt(pageNum.substr(4,3),10);
+
+            parent.reload_prdList(pageNum)
+
+            setTimeout(function(){
+                parent.enterFrameFun();
+            },100)
+
+            /*활성화 관련*/
+            selectMenu0(n)//1뎁스 활성화
+            selectMenu1(nn)//2뎁스 활성화
+
+            /* 초기 활성화관련된 페이지 계산*/
+            var totol_num = nn; // 활성화 넘버
+            swiper01.slideTo(totol_num);
+
+            if(n == 2){
+                //지역정보 텝일때만 3뎁스 생성
+                menu3_make()//3뎁스 만들기
+                var totol_num3 = nnn;
+                var page_view_num=4;
+               /* var mm3 = Math.floor(totol_num3 / page_view_num)*/
+                var mm3 = Math.ceil(totol_num3 / page_view_num) - 1
+
+               /* if(totol_num3 < 4){
+                 mm3 = 0;
+                 }*/
+
+                /*  var mm3;
+                if(totol_num3 < 5){
+                    mm3 = Math.floor(totol_num3 / 5)
+                    console.debug("5보다 작다")
+                }else{
+                    mm3 = Math.floor(totol_num3 / 4)
+                    console.debug("5보다 커")
+                }*/
+
+                console.debug("페이지당 보여줘야할 계수  ========================> : " + " : "  + page_view_num)
+                console.debug("3뎁스 황성화 넘버값  ========================> : " + " : "  + totol_num3)
+                console.debug("페이지 번호  ========================> : " + " : "  + mm3)
+                swiper02.slideTo(mm3)
+
+                if(nnn != 0){selectMenu2(nnn-1)};//3뎁스 활성화
+            }else{
+                $(".menu3").remove()
+            }
+        }
+       
+        /**
+            # 네비게이션 2,3뎁스 접기 함수
+        **/
+        function viewMenu(str){
+            //console.debug("viewMenu" + " : " + str)
+            if(str == "y"){
+                $(".menu2").css("display" , "block")
+                $(".menu3").css("display" , "block")
+            }else{
+                $(".menu2").css("display" , "none")
+                $(".menu3").css("display" , "none")
+            }
+        }
+
+        $(document).ready(function(){
+            /**
+             * 2뎁스 스와이핑 영역
+            **/
+            swiper01 = new Swiper('.menu2 .slider_wrap .swiper-container', {
+                autoplay : false,
+                nextButton: '.menu2 .slider_wrap .swiper-button-next',
+                prevButton: '.menu2 .slider_wrap .swiper-button-prev',
+                pagination: '.menu2 .swiper-pagination',
+                paginationClickable: true,
+                loop: false,
+                autoHeight: true,
+                spaceBetween: 0,
+                slidesPerView:4
+            });
+
+            /**
+             * 2뎁스 click =>  3뎁스 영역 만들기  function menu3_make()
+             **/
+            $(".menu2 .slider_wrap li a").each(function(index){
+                var mc = $(this)
+                mc.click(function(event){
+                    //console.debug(index)
+                    selectMenu1(index)
+                    if(n == 2){
+                        menu3_make()
+                    }
+                    nn = event.currentTarget.id;
+                    //console.debug("2뎁스 클릭 : " + " : " + nn)
+                    var pp = pageNum.substr(0,2)+nn+"000"
+                    parent.reload_prdList(pp); //상위 함수 호출
+                })
+            });
+        });
+
+        /**
+         * 3뎁스 영역 markup 생성
+         **/
+        var menu_str=null;
+        function menu3_make(){
+            if(menu_str != null){
+                //console.debug("3뎁스 영역 지우기")
+                $(".menu3 .slider_wrap").remove()
+            }
+            menu_str=''
+            +'<div class="slider_wrap">'
+                +'<div class="swiper-container">'
+                    +'<div class="swiper-wrapper">'
+                        +'<div class="swiper-slide">'
+                            +'<div class="obj">'
+                                +'<ul>'
+                                    +'<li><a id="001" href="javascript:;" target="_parent"><span>#리얼여행1-1</span></a></li>'
+                                    +'<li><a id="002" href="javascript:;" target="_parent"><span>#리얼여행1-2</span></a></li>'
+                                    +'<li><a id="003" href="javascript:;" target="_parent"><span>#리얼여행1-3</span></a></li>'
+                                    +'<li><a id="004" href="javascript:;" target="_parent"><span>#리얼여행1-4</span></a></li>'
+                                +'</ul>'
+                            +'</div>'
+                        +'</div>'
+                        +'<div class="swiper-slide">'
+                            +'<div class="obj">'
+                                +'<ul>'
+                                    +'<li><a id="005" href="javascript:;" target="_parent"><span>#셀럽투어2-1</span></a></li>'
+                                    +'<li><a id="006" href="javascript:;" target="_parent"><span>#셀럽투어2-2</span></a></li>'
+                                    +'<li><a id="007" href="javascript:;" target="_parent"><span>#셀럽투어2-3</span></a></li>'
+                                    +'<li><a id="008" href="javascript:;" target="_parent"><span>#셀럽투어2-4</span></a></li>'
+                                +'</ul>'
+                            +'</div>'
+                        +'</div>'
+                        +'<div class="swiper-slide">'
+                            +'<div class="obj">'
+                                +'<ul>'
+                                    +'<li><a id="009" href="javascript:;" target="_parent"><span>#셀럽투어3-1</span></a></li>'
+                                    +'<li><a id="010" href="javascript:;" target="_parent"><span>#여행의기3-2</span></a></li>'
+                                    +'<li><a id="011" href="javascript:;" target="_parent"><span>#작가에세3-3</span></a></li>'
+                                    +'<li><a id="012" href="javascript:;" target="_parent"><span>#리얼여행3-4</span></a></li>'
+                                +'</ul>'
+                            +'</div>'
+                        +'</div>'
+                        +'<div class="swiper-slide">'
+                            +'<div class="obj">'
+                                +'<ul>'
+                                    +'<li><a id="013" href="javascript:;" target="_parent"><span>#셀럽투어4-1</span></a></li>'
+                                    +'<li><a id="014" href="javascript:;" target="_parent"><span>#여행의기4-2</span></a></li>'
+                                    +'<li><a id="015" href="javascript:;" target="_parent"><span>#작가에세4-3</span></a></li>'
+                                    +'<li><a id="016" href="javascript:;" target="_parent"><span>#리얼여행4-4</span></a></li>'
+                                +'</ul>'
+                            +'</div>'
+                        +'</div>'
+                    +'</div>'
+                +'</div>'
+                +'<div class="swiper-button-next swiper-button-white"></div>'
+                +'<div class="swiper-button-prev swiper-button-white"></div>'
+                +'<div class="swiper-pagination"></div>'
+            +'</div>';
+
+
+            //console.debug("3뎁스 영역 생성")
+            $(".menu3").append(menu_str)
+
+            /**
+             * 3뎁스 영역 스크립트 생성
+             **/
+            swiper02 = new Swiper('.menu3 .slider_wrap .swiper-container', {
+                autoplay : false,
+                nextButton: '.menu3 .slider_wrap .swiper-button-next',
+                prevButton: '.menu3 .slider_wrap .swiper-button-prev',
+                pagination: '.menu3 .swiper-pagination',
+                paginationClickable: true,
+                loop: false,
+                autoHeight: true,
+                spaceBetween: 0,
+                slidesPerView: 1
+
+            });
+            /**
+             * 2뎁스 click =>  3뎁스 영역 만들기  function menu3_make()
+             **/
+            $(".menu3 .slider_wrap li a").each(function(index){
+                var mc = $(this)
+                mc.click(function(event){
+                    ////console.debug(index)
+                    nnn = event.currentTarget.id;
+                    //console.debug("3뎁스 클릭 : " + " : " + nnn)
+                    selectMenu2(parseInt(nnn)-1)
+
+                    var pp = pageNum.substr(0,2)+nn+nnn
+                    parent.reload_prdList(pp); //상위 함수 호출
+                    //parent.tab_click_anchor_move(index); //상위 함수 호출
+                })
+            });
+
+            var len3 = $(".menu3 .swiper-slide").length;
+            if(len3 > 1){
+                //alert("좌우버튼 보이기")
+                $('.menu3 .swiper-button-prev').css("display" ,"block")
+                $('.menu3 .swiper-button-next').css("display" ,"block")
+            }else{
+                //alert("좌우버튼 감추기")
+            }
+
+            resizeFrame()
+
+        };//end menu3_make()
+
+        /**
+         * 1뎁스 활성화 관련
+         */
+        var temp_m = -1;
+        function selectMenu0(n){
+            if(temp_m != -1){
+                var off = $(".tab li>a").eq(temp_m).find("img").attr("src").replace(/_on.jpg/,"_off.jpg")
+                $(".tab li>a").find("img").eq(temp_m).attr("src" , off)
+            }
+            var on = $(".tab li>a").eq(n).find("img").attr("src").replace(/_off.jpg/,"_on.jpg")
+            $(".tab li>a").find("img").eq(n).attr("src" , on)
+            temp_m = n
+        }
+        /**
+         * 2뎁스 활성화 관련
+         */
+        var temp = -1;
+        function selectMenu1(n){
+            if(temp != -1){
+                var off = $(".menu2 .slider_wrap li>a").eq(temp).find("img").attr("src").replace(/_on.png/,"_off.png")
+                $(".menu2 .slider_wrap li>a").find("img").eq(temp).attr("src" , off)
+            }
+            var on = $(".menu2 .slider_wrap li>a").eq(n).find("img").attr("src").replace(/_off.png/,"_on.png")
+            $(".menu2 .slider_wrap li>a").find("img").eq(n).attr("src" , on)
+            temp = n
+        }
+        /**
+         * 3뎁스 활성화 관련
+         */
+        var temp2 = -1;
+        function selectMenu2(n){
+
+            $( ".menu3 .slider_wrap li" ).removeClass( "select" )
+            $( ".menu3 .slider_wrap li").eq(n).addClass( "select" )
+
+            /*if(temp2 != -1){
+                var off = $(".menu3 .slider_wrap li>a").eq(temp2).find("img").attr("src").replace(/_on.png/,"_off.png")
+                $(".menu3 .slider_wrap li>a").find("img").eq(temp2).attr("src" , off)
+            }
+            var on = $(".menu3 .slider_wrap li>a").eq(n).find("img").attr("src").replace(/_off.png/,"_on.png")
+            $(".menu3 .slider_wrap li>a").find("img").eq(n).attr("src" , on)
+            temp2 = n*/
+        }
+
+
+
+
+        /**
+         * 로드 & 리사이즈시 index 에 값을 전달
+         */
+        $(window).resize(function(){
+           resize_fun()
+        })
+        window.onload=function(){
+            init();
+            resize_fun()
+        }
+        function resize_fun(){
+            parent.navi_height = $(".slider_wrap li img").height()+ $(".tab li img").height(); // 수정하자
+        }
+
+        /**
+         *
+         * 높이갱신 스크립트
+         */
+        var frameElement = window.frameElement,
+                addEvent = (function () {
+
+                    if ( window.addEventListener ) {
+                        return function ( element, type, listener ) {
+                            element.addEventListener( type, listener, false );
+                        };
+                    } else if ( window.attachEvent ) {
+                        return function ( element, type, listener ) {
+                            element.attachEvent( 'on' + type, function () {
+                                listener.call( element );
+                            });
+                        };
+                    }
+                }());
+
+        function resizeFrame() {
+            if ( frameElement ) {
+                frameElement.style.height = document.body.offsetHeight + 'px';
+            }
+        };
+        function resizeContents(){};
+
+        //최상단으로 올리기 ::  활성화 값과 1뎁스 클릭한 값이 같다면 최상으로 올리기  else  링크이동
+        function page_equal_number(idx){
+
+            //console.debug("1뎁스 활성화 값 : " + " : " + n + "  클릭한1뎁스 값 : " + idx)
+            if(n == parseInt(idx)) {
+                $('html, body', parent.document).animate({scrollTop: 0}, 400);
+            }else{
+                var mUrl=[]
+                mUrl[0]="http://promotion.auction.co.kr/promotion/mobile/eventview.aspx?txtmd=095E73DCE0&pageNum=0000000"
+                mUrl[1]="http://promotion.auction.co.kr/promotion/mobile/eventview.aspx?txtmd=095E70B5D3&pageNum=0100000"
+                mUrl[2]="http://promotion.auction.co.kr/promotion/mobile/eventview.aspx?txtmd=095E70B02A&pageNum=0200000"
+                mUrl[3]="http://promotion.auction.co.kr/promotion/mobile/eventview.aspx?txtmd=08B387D8A5&pageNum=0300000"
+                window.open(mUrl[idx],'_parent');
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+
+    <div id="p_header">
+        
+        <ul class="tab">
+            <li><a href="http://promotion.auction.co.kr/promotion/mobile/eventview.aspx?txtmd=095E73DCE0" target="_parent"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_menu_01_off.jpg" alt="" /></a></li>
+            <!--javascript:alert('지역정보')-->
+            <li><a href="javascript:;" onclick="page_equal_number('1')"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_menu_02_off.jpg" alt="" /></a></li>
+            <!--javascript:alert('작가에세이')-->
+            <li><a href="javascript:;" onclick="page_equal_number('2')"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_menu_03_off.jpg" alt="" /></a></li>
+            <!--javascript:alert('셀럽투어')-->
+            <li><a href="javascript:;" onclick="page_equal_number('3')"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_menu_04_off.jpg" alt="" /></a></li>
+
+        </ul>
+
+        <!--2뎁스영역-->
+        <div class="menu2">
+            <div class="slider_wrap">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!--  -->
+                        <li class="swiper-slide"><a id="00" href="javascript:;"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_tab01_off.png" alt="" /></a></li>
+                        <li class="swiper-slide"><a id="01" href="javascript:;"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_tab02_off.png" alt="" /></a></li>
+                        <li class="swiper-slide"><a id="02" href="javascript:;"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_tab03_off.png" alt="" /></a></li>
+                        <li class="swiper-slide"><a id="03" href="javascript:;"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_tab04_off.png" alt="" /></a></li>
+                        <li class="swiper-slide"><a id="04" href="javascript:;"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_tab05_off.png" alt="" /></a></li>
+                        <li class="swiper-slide"><a id="05" href="javascript:;"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_tab06_off.png" alt="" /></a></li>
+                        <li class="swiper-slide"><a id="06" href="javascript:;"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_tab07_off.png" alt="" /></a></li>
+                        <!-- // -->
+                    </div>
+                </div>
+
+                <!-- Add Arrows -->
+                <div class="swiper-button-next swiper-button-black"></div>
+                <div class="swiper-button-prev swiper-button-black"></div>
+            </div>
+        </div>
+
+
+        <!--3뎁스 영역-->
+        <!--지역정보 일때만 보여지는 영역-->
+        <div class="menu3">
+
+        </div>
+
+    </div>
+
+</body>
+</html>

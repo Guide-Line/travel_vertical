@@ -1,0 +1,48 @@
+@charset "euc-kr";
+
+*{margin:0;padding:0;font-family:"¸¼Àº °íµñ", Roboto, Droid Sans, Helvetica, AppleSDGothicNeo, 'Apple SD »êµ¹°íµñ Neo', Apple-Gothic, '¾ÖÇÃ°íµñ', 'Tahoma', 'dotum', 'µ¸¿ò', 'gulim', '±¼¸²', sans-serif;}
+.inc-obj{position: relative; width:1200px; margin:0 auto;}
+img{border:0;vertical-align:top}
+li{list-style:none}
+body{background: transparent;}
+#p_header{margin:0 auto;position:relative ; width:100%; }
+#p_header img{/*width:100%*/}
+
+.menu1{background-color: #272830; position: relative; width:100%; }
+.tab{overflow: hidden; position: relative; z-index: 100; margin-left: 157px;}
+.tab li{ float: left; list-style: none; width:130px; margin-right: 121px;}
+.tab li img{ width:100%; vertical-align: top;}
+
+#p_header .menu2 {position:relative;width:100%; height:137px; }
+#p_header .menu2 .swiper-container{position:relative;width:1015px; padding-top: 24px; height:89px;  overflow: hidden;}
+#p_header .menu2 .swiper-wrapper{position:relative;}
+#p_header .menu2 .swiper-slide{position:relative;width:125px;height:89px;overflow: hidden; }
+#p_header .menu2 .swiper-slide img{line-height: 0; vertical-align: top; width:125px; height:89px;}
+#p_header .menu2 .swiper-pagination{width:100%;bottom:0;left:0; display: none;}
+#p_header .menu2 .swiper-pagination .swiper-pagination-switch{width:12px;height:12px;display:inline-block;*display:inline;*zoom:1;padding:0 8px;background:url(http://eventimg.auction.co.kr/md/auction/08E93EF946/w_ico_blit_off.png) no-repeat 0 0;border-radius:0}
+#p_header .menu2 .swiper-pagination .swiper-active-switch{background:url(http://eventimg.auction.co.kr/md/auction/08E93EF946/w_ico_blit_on.png) no-repeat 0 0}
+#p_header .menu2 .swiper-button-prev{display: none; z-index:99; width:35px;height:65px;position:absolute;top:35px;left:0;background:url(http://eventimg.auction.co.kr/md/auction/095E70B02A/lArr.jpg) no-repeat 0 0;z-index:100;cursor:pointer}
+#p_header .menu2 .swiper-button-next{display: none; z-index:99; width:35px;height:65px;position:absolute;top:35px;right:0;background:url(http://eventimg.auction.co.kr/md/auction/095E70B02A/rArr.jpg) no-repeat 0 0;z-index:100;cursor:pointer}
+
+
+#p_header .menu3 { position:relative; width:100%; height:138px; background: url("http://eventimg.auction.co.kr/md/auction/095E70B02A/w_3depths_bg.jpg") no-repeat center top;}
+#p_header .menu3 .swiper-wrapper{position:relative}
+#p_header .menu3 .swiper-slide{position:relative;width:1200px;height:138px;}
+#p_header .menu3 .swiper-pagination{width:100%;bottom:0;left:0; display: none;}
+#p_header .menu3 .swiper-pagination .swiper-pagination-switch{width:12px;height:12px;display:inline-block;*display:inline;*zoom:1;padding:0 8px;background:url(http://eventimg.auction.co.kr/md/auction/08E93EF946/w_ico_blit_off.png) no-repeat 0 0;border-radius:0}
+#p_header .menu3 .swiper-pagination .swiper-active-switch{background:url(http://eventimg.auction.co.kr/md/auction/08E93EF946/w_ico_blit_on.png) no-repeat 0 0}
+#p_header .menu3 .swiper-button-prev{display: none; z-index:99; width:35px;height:65px;position:absolute;top:35px;left:0;background:url(http://eventimg.auction.co.kr/md/auction/095E70B02A/lArr2.png) no-repeat 0 0;z-index:100;cursor:pointer}
+#p_header .menu3 .swiper-button-next{display: none; z-index:99; width:35px;height:65px;position:absolute;top:35px;right:0;background:url(http://eventimg.auction.co.kr/md/auction/095E70B02A/rArr2.png) no-repeat 0 0;z-index:100;cursor:pointer}
+
+.obj{ position:relative;}
+.obj a{ text-decoration: none; color:#f2ffb9;font-size: 21px;  letter-spacing: -1.5px; }
+.obj li{text-align: center; line-height: 25px;padding:0 10px;}
+
+.obj .mc1{position:absolute; left:120px; top:20px;  /*width:180px;*/  height:31px;  }
+.obj .mc2{position:absolute; left:230px; top:80px;  /*width:180px;*/  height:31px;  }
+.obj .mc3{position:absolute; left:380px; top:20px;  /*width:180px;*/  height:31px;  }
+.obj .mc4{position:absolute; left:530px; top:80px;  /*width:180px;*/  height:31px;  }
+.obj .mc5{position:absolute; left:660px; top:20px;  /*width:180px;*/  height:31px;  }
+.obj .mc6{position:absolute; left:800px; top:80px;  /*width:180px;*/  height:31px;  }
+.obj .mc7{position:absolute; left:916px; top:20px;  /*width:180px;*/  height:31px;  }
+.obj li.select{border-bottom:5px solid #b6d932;}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="euc-kr">
+	<title>옥션 - 모바일 쇼핑은 옥션</title>
+	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1,  user-scalable=no" />
+	<meta http-equiv="cleartype" content="on"/>
+	<script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/0923379F49/jquery-1.11.3.min.js"></script>
+	<link rel="stylesheet" href="http://eventimg.auction.co.kr/md/auction/0868D4BD4A/swiper.min.css">
+	<script src="http://eventimg.auction.co.kr/md/auction/0868D4BD4A/swiper.min.js"></script>
+
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		img{border:0;vertical-align:top; width:100%;}
+		li{list-style:none;}
+		.mImg{width:100%; vertical-align: top; line-height: 0; max-width: 640px;}
+		.m_tit{position: absolute; top:0%; width:100%; z-index:100;}
+		#p_navi{z-index:10;position:relative;}
+	
+		#p_header{position: relative; width:100%; max-width: 640px; }
+		#p_header img{vertical-align: top; line-height: 0; width:100%;}
+		.p_cnt{height:100%; width:100%; max-width: 640px; text-align: center;}
+		.p_cnt img{vertical-align: top; line-height: 0; width:100%;}
+
+		.fixed{position:fixed;top:0;left:0;width:100%;background:transparent !important;margin:0;z-index:100;}
+		#p_section {margin-top:3%;}
+
+		.sub_top{position: relative; width:100%;}
+		#p_essay .swiper-container{width: 100%;position: relative;}
+		#p_essay .swiper-button-prev{z-index:101; left:0;}
+		#p_essay .swiper-button-next{z-index:101; right:0;}
+		#p_essay .swiper-button-black{width: 40px;height: 80px;background-position: 50%; background-size:30%;margin-top:-40px;background:none;}
+		#p_essay .swiper-pagination{bottom:4%;width: 100%;}
+		#p_essay .swiper-pagination span{border:2px solid #fff;background: #fff;margin:0 1.5%;}
+		#p_essay .swiper-pagination span.swiper-pagination-bullet-active{background: transparent;}
+	</style>
+
+	<script type="text/javascript">
+		//url  ==> mobile_sample.html?pageNum=0101000
+		//pageNum : 7자리 활성화 코드
+            
+		window.onload = function(){
+			naviaddChild() // 네비게이션 만들기
+            
+			//$("#p_navi").css("height",menuH);		
+			enterFrameFun();            
+		}
+
+		$(window).resize(function(){
+			//$("#p_navi").css("height",menuH);			
+			enterFrameFun()
+		})
+
+		$(document).ready(function(){
+			var gnb_ifm = getIframeContent('navi_obj');
+
+			// when scroll
+			$(window).scroll(function(){
+
+				var aboveHeight = $("#p_navi").offset().top;
+
+
+				locate = $(window).scrollTop();
+				//locate2 = $(window).scrollTop()+menuH; // 마지막 네비높이
+
+				//scrolled down header's height
+				if (locate >= aboveHeight){
+					$("#p_navi_area").addClass('fixed');
+					gnb_ifm.viewMenu("n")
+					gnb_ifm.resizeFrame()//gnb 리사이즈 호출
+                    //console.debug("$(#p_navi_area).addClass(fixed); => 네비게이션 접기")
+				} else {
+					$("#p_navi_area").removeClass('fixed');
+					gnb_ifm.viewMenu("y")
+					gnb_ifm.resizeFrame()//gnb 리사이즈 호출
+                   // console.debug("$(#p_navi_area).removeClass(fixed); => 네비게이션 펼치기")
+				}
+				enterFrameFun()
+			});
+		});
+		
+		var navi_height;
+		function naviaddChild(){
+			$("#navi_obj").attr("src" , "http://eventimg.auction.co.kr/md/auction/095E70B02A/m_gnb.html?ver=0331_4")
+			/*$("#navi_obj").attr("src" , "dev/m_gnb.html")*/
+            //console.debug("index => gnb addChild" + " : " + "dev/m_gnb.html")
+			$("#navi_obj").load(function(){
+				//console.debug("메뉴의 세로값 " + " : " + navi_height);
+			})
+			resizeFun()
+		}
+		
+		//스크롤 및 리사이즈시 호출되는 함수 :: onload 이후에 실행
+		function enterFrameFun(){
+			$("#p_navi").css("height" , navi_height+"px");//네비게이션이 fixed 처리되고 난후에도 그 공간만큼 잡아줌
+			resizeFun()
+		}
+		function resizeFun(){
+			var docWidth = document.body.offsetWidth;
+			if(docWidth < 640){
+				$("#navi_obj").css("width" ,docWidth + "px")
+			}else{
+				$("#navi_obj").css("width" ,640 + "px")
+			}
+		}
+
+
+		/*하단 상품 리로드 관련*/
+		function reload_prdList(seven_code){
+			//console.debug("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
+			//alert("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
+		}
+
+		//iframe 내부 제어함수
+		function getIframeContent(id){
+			var ifrm = document.getElementById(id);
+			return ifrm.contentWindow || ifrm.contentDocument;
+		}
+
+	</script>
+</head>
+<body>
+	<!--비주얼 영역-->
+    <div id="p_header">
+		<div id="p_essay" class="sub_top">
+			<div class="swiper-container">
+				<img class="m_tit" src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_top_tit.png" alt=""/>
+				<div class="swiper-wrapper">
+					<!--  -->
+					<div class="swiper-slide">
+						<img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_top_img1_1.jpg" alt="">
+						<img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_top_img1_2.jpg" alt="">
+
+					</div>
+					<div class="swiper-slide">
+						<img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_top_img2_1.jpg" alt="">
+						<img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_top_img2_2.jpg" alt="">
+
+					</div>
+					<div class="swiper-slide">
+						<img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_top_img3_1.jpg" alt="">
+						<img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_top_img3_2.jpg" alt="">
+
+					</div>
+					<!-- //  -->
+				</div>
+				<!-- Add Arrows -->
+				<div class="swiper-button-prev swiper-button-black"><img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_slide_prev.png" alt=""></div>
+				<div class="swiper-button-next swiper-button-black"><img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_slide_next.png" alt=""></div>
+			</div>
+			<script>
+				var mySwiper = new Swiper('#p_essay .swiper-container', {
+					autoplay : 3000,
+					nextButton: '#p_essay .swiper-button-next',
+					prevButton: '#p_essay .swiper-button-prev',
+					pagination: '#p_essay .swiper-pagination',
+					paginationClickable: true,
+					loop: true,
+					autoHeight: true,
+					spaceBetween: 0,
+					autoplayDisableOnInteraction : false
+				});
+			</script>
+		</div>
+    </div>
+	<!--비주얼 영역 여기까지-->
+
+    <!--네비게이션영역-->
+    <div id="p_navi">
+        <div id="p_navi_area">
+            <iframe id="navi_obj" src="" width="100%"  scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+        </div>
+    </div>
+	<!--// 네비게이션영역 여기까지-->
+
+    
+
+	<div id="p_section" class="p_cnt prd_area">
+		<!--하단 컨텐츠 영역-->
+
+
+
+
+
+		<!--여기까지-->
+	</div>
+
+</body>
+</html>
