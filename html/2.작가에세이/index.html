@@ -10,6 +10,12 @@
     <script src="http://eventimg.auction.co.kr/md/auction/08405BF42E/idangerous.swiper.js"></script>
 
     <script type="text/javascript">
+
+        //url  ==> mobile_sample.html?pageNum=0101000
+        //pageNum : 7자리 활성화 코드
+        var str = location.href;
+        var pageNum = str.split("pageNum=")[1].substr(0,7)
+
         window.onload = function(){
             naviaddChild() // 네비게이션 만들기
             //$("#p_navi").css("height",menuH);
@@ -20,6 +26,8 @@
             //$("#p_navi").css("height",menuH);
             enterFrameFun()
         })
+
+
         // 링크 연동
         $(document).ready(function(){
             var gnb_ifm = getIframeContent('navi_obj');
@@ -57,8 +65,11 @@
 
         var navi_height;
         function naviaddChild(){
-            $("#navi_obj").attr("src" , "http://eventimg.auction.co.kr/md/auction/095E70B02A/w_gnb.html?ver=0331_4")
+
+            /*$("#navi_obj").attr("src" , "http://eventimg.auction.co.kr/md/auction/095E70B02A/w_gnb.html?ver=0331_4")*/
+            $("#navi_obj").attr("src" , "http://eventv2qadv01am.auction.co.kr/Event3/Stable/TravelStore2/ifrmMenu2.aspx?pageNum=" + pageNum)
             /*$("#navi_obj").attr("src" , "dev/w_gnb.html")*/
+
             //console.debug("index => gnb addChild" + " : " + "dev/w_gnb.html")
             $("#navi_obj").load(function(){
                 //console.debug("메뉴의 세로값 " + " : " + navi_height);
@@ -69,12 +80,20 @@
         function enterFrameFun(){
             //prd_top = $(".prd_area").offset().top;
             //$("#p_navi").css("height" , navi_height+"px");//네비게이션이 fixed 처리되고 난후에도 그 공간만큼 잡아줌
+
         }
+        /*var totol_num = 15;
+         var page_view_num=7;
+         alert(Math.ceil(totol_num / page_view_num))*/
+
         /*하단 상품 리로드 관련*/
         function reload_prdList(seven_code){
+
+            $("#prd_list").attr("src" , "http://eventv2qadv01am.auction.co.kr/Event3/Stable/TravelStore2/ContentsList.aspx?pageNum=" + seven_code)
             //console.debug("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
             //alert("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
         }
+
         //iframe 내부 제어함수
         function getIframeContent(id){
             var ifrm = document.getElementById(id);
@@ -92,7 +111,7 @@
         #p_navi_cnt ul li{width:20%;float:left;text-align:center;}
 
         .p_cnt{position:relative; width:100%;}
-        .inc-obj-1200{position: relative; width:1200px; margin: 0 auto;}
+        .inc-obj-1200{position: relative; width:1200px; margin: 0 auto; margin-top: 45px;}
 
         .fixed{position:fixed;top:45px;left:0;width:100%;background:#fff;margin:0;z-index:100;}
 
@@ -213,16 +232,14 @@
 
 
     <div id="p_section" class="p_cnt">
-        <div class="inc-obj-1200">
-            <!--하단 컨텐츠 영역-->
-
-
-
-
-
-            <!--여기까지-->
+        <!--하단 컨텐츠 영역-->
+        <div style="position:relative; width:1200px; margin:0 auto; margin-top:45px; overflow: hidden;">
+            <iframe id="prd_list" src="" width="100%"   scrolling="no" frameborder="0" allowTransparency="true"></iframe>
         </div>
+
     </div>
+
+
 
 
 </body>

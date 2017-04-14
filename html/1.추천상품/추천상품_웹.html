@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+	<title>옥션 - 모바일 쇼핑은 옥션</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<link rel="stylesheet" href="http://eventimg.auction.co.kr/md/auction/08405BF42E/idangerous.swiper.css">
+	<script type="text/javascript" src="http://script.auction.co.kr/common/jquery.js"></script>
+	<script src="http://eventimg.auction.co.kr/md/auction/08405BF42E/idangerous.swiper.js"></script>
+	<script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/04D25F0304/jquery.easing-1.3.min.js"></script>
+
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.rel{position: relative; width:100%;}
+		img{border:0;vertical-align:top;}
+		li{list-style:none;}
+		.msg{display: none;}
+		.btn_on{display: none;}
+		.inc-obj{position:relative; width:1200px; margin: 0 auto;}
+		#p_navi{width:100%;height:66px;position:relative;z-index:600;}
+		#p_navi_cnt ul{width:980px;margin:0 auto;overflow:hidden;}
+		#p_navi_cnt ul li{width:20%;float:left;text-align:center;}
+
+		.p_cnt{position: relative; width:100%; min-width:1200px;}
+
+		.fixed{position:fixed;top:45px;left:0;width:100%;background:#fff;margin:0;z-index:100;}
+
+		.menu1{background-color: #272830; position: relative; width:100%; }
+		.tab{overflow: hidden; position: relative; z-index: 100; margin-left: 157px;}
+		.tab li{ float: left; list-style: none; width:130px; margin-right: 121px;}
+		.tab li img{ width:100%; vertical-align: top;}
+		
+		.visual_01{background: url("http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_top_01.jpg") no-repeat center top; height: 251px;}
+		.visual_02{background: url("http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_top_02.jpg") no-repeat center top; height: 250px;}
+
+		#p_section01{margin-top: 30px; }
+		#p_section01 .swiper-wrapper{position:relative}
+		#p_section01 .swiper-slide{position:relative;width:980px;height:804px;}
+		#p_section01 .swiper-pagination{width:100%;bottom:220px;left:0}
+		#p_section01 .swiper-pagination .swiper-pagination-switch{width:15px;height:15px;display:inline-block;*display:inline;*zoom:1;padding:0 8px;background:url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/circle_off.png) no-repeat 0 0;border-radius:0}
+		#p_section01 .swiper-pagination .swiper-active-switch{background:url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/circle_on.png) no-repeat 0 0}
+		#p_section01 .swiper-button-prev{width:68px;height:68px;position:absolute;top:35%;margin-top:-34px;left:0;background:url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/lArr.png) no-repeat 0 0;z-index:100;cursor:pointer}
+		#p_section01 .swiper-button-next{width:68px;height:68px;position:absolute;top:35%;margin-top:-34px;right:0;background:url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/rArr.png) no-repeat 0 0;z-index:100;cursor:pointer}
+		#p_section01 .pop_clip_01{position:absolute; z-index: 100; top:265px; right:60px; display: none;}
+		#p_section01 .pop_clip_02{position:absolute; z-index: 100; top:265px; left:60px;  display: none;}
+
+
+		#p_section02{background-color: #f5f5f5; padding-bottom: 30px;}
+		#p_section02 .couponBox{border:1px solid #d6c5b5; width:1197px;}
+		#p_section02 .couponBox .couponBtn{position:absolute; left:447px; bottom:23px;}
+
+		#p_section03{}
+		#p_section03 .swiper-container .swiper-button-prev, .swiper-container .swiper-button-next{width:30px;height:60px;margin-top:-30px;}
+		#p_section03 .swiper-container .swiper-button-prev{width:68px;height:68px; margin-left:-600px;left:50%;background:url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/lArr.png) no-repeat 0 0;z-index:100;cursor:pointer}
+		#p_section03 .swiper-container .swiper-button-next{width:68px;height:68px; margin-right:-600px;right:50%;background:url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/rArr.png) no-repeat 0 0;z-index:100;cursor:pointer}
+		#p_section03 .swiper-container{width:100%;	height: 600px;}
+		#p_section03 .swiper-slide{width:100%;height:600px;float:left;position:relative; text-align: center;}
+		#p_section03 .swiper-slide p{position: relative;  /*margin-left:50%; display: block*/}
+		/*#p_section03 .swiper-slide p img{position: relative; margin-left:-1000px;}*/
+
+		#p_section03 .swiper-pagination {bottom:25px;}
+		#p_section03 .swiper-pagination .swiper-pagination-switch{width:15px;height:15px;display:inline-block;*display:inline;*zoom:1;padding:0 8px;background:url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/circle_off.png) no-repeat 0 0;border-radius:0}
+		#p_section03 .swiper-pagination .swiper-active-switch{background:url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/circle_on.png) no-repeat 0 0}
+		#p_section03 .yolo{margin-top: 30px; padding-bottom: 30px;}
+
+		#p_section04{ background-color: #f5f5f5; padding-bottom: 30px;}
+		#p_section04 .slide_banner{position: absolute; left:219px; top:205px;}
+		#p_section04 .contents{width:1200px; }
+		#p_section04 .swiper-button-prev, .swiper-container .swiper-button-next{width:30px;height:60px;margin-top:-30px;}
+		#p_section04 .swiper-button-prev{position:absolute; width:68px;height:68px; left:-100px; top:190px; background:url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/lArr2.png) no-repeat 0 0;z-index:100;cursor:pointer}
+		#p_section04 .swiper-button-next{position:absolute; width:68px;height:68px; left:780px; top:157px; background:url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/rArr2.png) no-repeat 0 0;z-index:100;cursor:pointer}
+		#p_section04 .swiper-container{width:746px;	height: 416px; position: absolute; left:0px; top:0px;}
+		#p_section04 .swiper-slide{width:100%;height:600px;float:left;position:relative; text-align: center;}
+		#p_section04 .swiper-slide p{position: relative;  /*margin-left:50%; display: block*/}
+		#p_section04 .swiper-pagination {display: none;}
+		#p_section04 .face_btn{position: absolute; left:447px; top:650px;}
+
+	</style>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			var naviH = $("#p_navi").height();
+			// when scroll
+			$(window).scroll(function(){
+				var num = 0;
+				var aboveHeight = $("#p_navi").offset().top;
+				var menuPos = new Array;
+				var menuLength = $("#p_navi_area li").length-1;
+				locate = $(window).scrollTop()+45;
+				locate2 = $(window).scrollTop()+45+naviH; // 마지막 네비높이
+				//scrolled down header's height
+				if (locate >= aboveHeight){
+					$("#p_navi_area").addClass('fixed');
+				} else {
+					$("#p_navi_area").removeClass('fixed');
+				}
+			});
+
+			var mySwiper = new Swiper('#p_section01 .swiper-container', {
+				pagination:'#p_section01 .swiper-pagination',
+				paginationClickable:true,
+				simulateTouch:false,
+				loop:false,
+				autoplay:false,
+				calculateHeight:true,
+				onSlideChangeStart : function(event){
+					var n = getSlideDataIndex(mySwiper)
+					if(n == 0){
+						$('#p_section01 .swiper-button-prev').css("display" , "none")
+						$('#p_section01 .swiper-button-next').css("display" , "block")
+					}else{
+						$('#p_section01 .swiper-button-prev').css("display" , "block")
+						$('#p_section01 .swiper-button-next').css("display" , "none")
+					}
+				},
+				onInit:function(){
+					$('#p_section01 .swiper-button-prev').css("display" , "none")
+					$('#p_section01 .swiper-button-next').css("display" , "block")
+				}
+
+			});
+			$('#p_section01 .swiper-button-prev').bind('click', function(e){
+				e.preventDefault();
+				mySwiper.swipePrev();
+			});
+			$('#p_section01 .swiper-button-prev').bind('mouseenter', function(e){
+				//console.debug("mouse over")
+				$(".pop_clip_02").show()
+			});
+			$('#p_section01 .swiper-button-prev').bind('mouseleave', function(e){
+				//console.debug("mouse out")
+				$(".pop_clip_02").hide()
+			});
+
+			$('#p_section01 .swiper-button-next').bind('click', function(e){
+				e.preventDefault();
+				mySwiper.swipeNext();
+			});
+			$('#p_section01 .swiper-button-next').bind('mouseenter', function(e){
+				//console.debug("mouse over")
+				$(".pop_clip_01").show()
+			});
+			$('#p_section01 .swiper-button-next').bind('mouseleave', function(e){
+				//console.debug("mouse out")
+				$(".pop_clip_01").hide()
+			});
+
+
+
+
+			var swiper_month = new Swiper('#p_section03 .swiper-container', {
+				loop:true,
+				autoplay:4500,
+				pagination: '#p_section03 .swiper-pagination',
+				paginationClickable: true,
+				calculateHeight: true
+			});
+			$('#p_section03 .swiper-button-prev').bind('click', function(e){
+				e.preventDefault()
+				swiper_month.stopAutoplay();
+				swiper_month.swipePrev();
+				swiper_month.startAutoplay();
+			})
+			$('#p_section03 .swiper-button-next').bind('click', function(e){
+				e.preventDefault()
+				swiper_month.stopAutoplay();
+				swiper_month.swipeNext();
+				swiper_month.startAutoplay();
+			})
+
+
+			var swiper_face = new Swiper('#p_section04 .swiper-container', {
+				loop:true,
+				autoplay:4500,
+				pagination: '#p_section04 .swiper-pagination',
+				paginationClickable: true,
+				calculateHeight: true
+			});
+			$('#p_section04 .swiper-button-prev').bind('click', function(e){
+				e.preventDefault()
+				swiper_face.stopAutoplay();
+				swiper_face.swipePrev();
+				swiper_face.startAutoplay();
+			})
+			$('#p_section04 .swiper-button-next').bind('click', function(e){
+				e.preventDefault()
+				swiper_face.stopAutoplay();
+				swiper_face.swipeNext();
+				swiper_face.startAutoplay();
+			})
+
+		});
+
+		function getSlideDataIndex(swipe){
+			var activeIndex = swipe.activeIndex;
+			var slidesLen = swipe.slides.length;
+			if(swipe.params.loop){
+				switch(swipe.activeIndex){
+					case 0:
+						activeIndex = slidesLen-3;
+						break;
+					case slidesLen-1:
+						activeIndex = 0;
+						break;
+					default:
+						--activeIndex;
+				}
+			}
+			return  activeIndex;
+		}
+		//상단으로 올라가는 스크립트
+		function scrollTop_fun(){
+			$('html, body').animate({scrollTop: 0}, 400);
+		}
+
+
+		function notice_on(_mc){
+			$(_mc).find(".btn_off").css("display" ,"none")
+			$(_mc).find(".btn_on").css("display" ,"block")
+			//$(_mc).find(".msg").css("display" ,"block")
+			$(_mc).find(".msg").slideDown(300,'easeInOutQuad');
+		}
+		function notice_off(_mc){
+			$(_mc).find(".btn_off").css("display" ,"block")
+			$(_mc).find(".btn_on").css("display" ,"none")
+			//$(_mc).find(".msg").css("display" ,"none")
+			$(_mc).find(".msg").slideUp(400,'easeInOutQuad');
+		}
+
+	</script>
+</head>
+<body>
+
+	<div id="p_header" class="p_cnt">
+		<div class="visual_01"></div>
+		<div class="visual_02"></div>
+	</div>
+
+	<div id="p_navi">
+		<div id="p_navi_area">
+			<div class="menu1">
+				<div class="inc-obj">
+					<ul class="tab">
+						<li><a href="javascript:scrollTop_fun();"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/w_menu_01_on.jpg" alt="" /></a></li>
+						<li><a href="http://promotion.auction.co.kr/promotion/md/eventview.aspx?txtmd=095E70B5D3&pageNum=0101000" target="_self"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/w_menu_02_off.jpg" alt="" /></a></li>
+						<li><a href="http://promotion.auction.co.kr/promotion/md/eventview.aspx?txtmd=095E70B02A&pageNum=0201000" target="_self"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/w_menu_03_off.jpg" alt="" /></a></li>
+						<li><a href="http://promotion.auction.co.kr/promotion/md/eventview.aspx?txtmd=08B387D8A5&pageNum=0301000" target="_self"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/w_menu_04_off.jpg" alt="" /></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--여가딜 영역-->
+	<div id="p_section01" class="p_cnt">
+		<div class="inc-obj">
+			<div class="swiper-container">
+				<p class="pop_clip_01"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/pop_clip_01.jpg" alt="차주오픈딜 설명"/></p>
+				<p class="pop_clip_02"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/pop_clip_02.jpg" alt="금주오픈딜 설명"/></p>
+
+				<div class="swiper-wrapper">
+					<!--금주오픈딜-->
+					<div class="swiper-slide">
+						<div class="rel">
+							<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_week_deal_img.jpg" alt=""/>
+							<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_week_deal_img_info.jpg" alt="" usemap="#Map" border="0"/>
+                            <map name="Map" id="Map">
+								<!--구매하기-->
+								<area shape="rect" coords="448,154,758,223" href="#" target="_blank" onfocus="this.blur()"/>
+                            </map>
+						</div>
+					</div>
+					<!--//금주오픈딜-->
+
+					<!--차주오픈딜-->
+					<div class="swiper-slide">
+						<div class="rel">
+							<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_nextweek_deal_img.jpg" alt=""/>
+							<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_nextweek_deal_img_info.jpg" alt=""/>
+						</div>
+					</div>
+					<!--//차주오픈딜-->
+
+				</div>
+			</div>
+
+			<!-- Add Arrows -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+		</div>
+	</div>
+	<!--여가딜 영역 끝-->
+
+
+
+	<!--00월 쿠폰 영역-->
+	<div id="p_section02" class="p_cnt">
+		<div class="inc-obj">
+			<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_month_tit.jpg" alt="5월의 혜택"/>
+			<div class="couponBox">
+				<div class="rel">
+					<div class="rel">
+						<!--개발 : 쿠폰 버튼-->
+						<iframe class="couponBtn"  src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/couponBtn.html" width="311" height="69"  scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+						<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_coupon_img.jpg" alt="10,000"/>
+					</div>
+					<div class="notice_box">
+						<a href="javascript:notice_on('.notice_box')"><img class="btn_off" src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_coupon_notice_btn_off.jpg"></a>
+						<a href="javascript:notice_off('.notice_box')"><img class="btn_on" src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_coupon_notice_btn_on.jpg"></a>
+						<p class="msg"><img  src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_coupon_notice_img.jpg" alt="쿠폰에대한 안내"></p>
+					</div>
+				</div>
+			</div>
+			</div>
+	</div>
+	<!--매월 쿠폰 영역 끝-->
+
+
+
+	<!--00월의 추천테마-->
+	<div id="p_section03" class="p_cnt">
+		<div class="inc-obj">
+			<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_month_tit2.jpg" alt="5월의 추천테마"/>
+		</div>
+
+		<div class="slide_banner">
+			<div class="swiper-container">
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div style="background: url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_theme01_01.jpg) no-repeat center top; height:300px;"></div>
+						<div style="background: url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_theme01_02.jpg) no-repeat center top; height:300px;"></div>
+						<!--<p><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_theme01_01.jpg" alt=""/></p>
+						<p><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_theme01_02.jpg" alt=""/></p>-->
+					</div>
+					<div class="swiper-slide">
+						<div style="background: url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_theme02_01.jpg) no-repeat center top; height:300px;"></div>
+						<div style="background: url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_theme02_02.jpg) no-repeat center top; height:300px;"></div>
+					</div>
+					<div class="swiper-slide">
+						<div style="background: url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_theme03_01.jpg) no-repeat center top; height:300px;"></div>
+						<div style="background: url(http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_theme03_02.jpg) no-repeat center top; height:300px;"></div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+
+		<!--5개 테마 상품-->
+		<div class="inc-obj yolo">
+			<a href="#" target="_blank"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_big_theme_01.jpg" alt="YOLO 추천상품1"/></a>
+			<a href="#" target="_blank"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_big_theme_02.jpg" alt="YOLO 추천상품2"/></a>
+			<a href="#" target="_blank"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_big_theme_03.jpg" alt="YOLO 추천상품3"/></a>
+			<a href="#" target="_blank"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_big_theme_04.jpg" alt="YOLO 추천상품4"/></a>
+			<a href="#" target="_blank"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_big_theme_05.jpg" alt="YOLO 추천상품5"/></a>
+
+		</div>
+	</div>
+	<!--00월의 추천테마 끝-->
+
+	<!--sns이벤트-->
+	<div id="p_section04" class="p_cnt">
+		<div class="inc-obj">
+
+			<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_sns_tit.jpg" alt=""/>
+			<div class="contents rel">
+
+				<a class="face_btn" href="#" target="_blank"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_facebook_btn.jpg" alt="여행가게 페이스북"/></a>
+
+				<div class="slide_banner">
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-container">
+
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_face_roll_img_01.jpg" alt=""/>
+							</div>
+							<div class="swiper-slide">
+								<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_face_roll_img_02.jpg" alt=""/>
+							</div>
+							<div class="swiper-slide">
+								<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_face_roll_img_03.jpg" alt=""/>
+							</div>
+							
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/w_facebook_bg.jpg" alt=""/>
+			</div>
+		</div>
+	</div>
+	<!--sns이벤트 끝-->
+ </body>
+</html>

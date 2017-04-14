@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="euc-kr">
+	<title>옥션 - 모바일 쇼핑은 옥션</title>
+	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1,  user-scalable=no" />
+	<meta http-equiv="cleartype" content="on"/>
+	<link rel="stylesheet" href="http://eventimg.auction.co.kr/md/auction/0868D4BD4A/swiper.min.css">
+	<script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/086A428A1C/jquery-1.11.3.min.js"></script>
+	<script src="http://eventimg.auction.co.kr/md/auction/0868D4BD4A/swiper.min.js"></script>
+	<script type="text/javascript" src="http://eventimg.auction.co.kr/md/auction/04D25F0304/jquery.easing-1.3.min.js"></script>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		img{border:0;vertical-align:top;}
+		li{list-style:none;}
+		.msg{display: none;}
+		.btn_on{display: none;}
+		.rel{position: relative; width:100%;}
+		#p_navi{z-index:45;position:relative;}
+		#p_navi_cnt{z-index:10;overflow:hidden;background:#00a735;max-width:640px;margin:0 auto;}
+		#p_navi_cnt ul{overflow:hidden;}
+		#p_navi_cnt ul li{width:25%;float:left;}
+		#p_navi_cnt ul li img{width:100%;}
+
+		.p_cnt{position:relative; width:100%; max-width:640px; margin: 0 auto;}
+		.p_cnt img{width:100%; vertical-align: top;}
+
+		.fixed{position:fixed;top:0;left:0;width:100%;background:#fff;margin:0;z-index:100;}
+
+		#p_section01 {position:relative; margin-top:5%;}
+		#p_section01 .slider_wrap{position:relative;overflow:hidden;background:#fff;}
+		#p_section01 .swiper-container {overflow:hidden;position:relative}
+		#p_section01 .swiper-wrapper {width:100%;height:100%}
+		#p_section01 .swiper-button-disabled {opacity:0 !important;}
+		#p_section01 .swiper-slide {overflow:hidden;position:relative}
+		#p_section01 .swiper-pagination{width:100%;text-align:center;position:absolute;left:0;bottom:27%}
+		#p_section01 .swiper-pagination-bullet{width:6px;height:6px;margin:0 5px;background:transparent;border:2px #000 solid;border-radius:100%;opacity:1}
+		#p_section01 .swiper-pagination-bullet-active{border:2px #000 solid;opacity:1;background:#000;}
+		#p_section01 .swiper-button-prev{opacity:1;width:40px;height:40px;z-index:10;top:32%;background-color:transparent;background-size:30px 20px;margin-top:-20px;left:0}
+		#p_section01 .swiper-button-next{opacity:1;width:40px;height:40px;z-index:10;top:32%;background-color:transparent;background-size:30px 20px;margin-top:-20px;right:0}
+
+		#p_section02 {position:relative; margin-top:1%; }
+		#p_section02 .couponBtn{position: absolute; left:28%; top:78%; width:45%;  }
+
+
+		#p_section03 {position:relative; margin-top:5%;}
+		#p_section03 .slider_wrap{position:relative;overflow:hidden;background:#fff;}
+		#p_section03 .swiper-container {overflow:hidden;position:relative}
+		#p_section03 .swiper-wrapper {width:100%;height:100%}
+		#p_section03 .swiper-button-disabled {opacity:0 !important;}
+		#p_section03 .swiper-slide {overflow:hidden;position:relative}
+		#p_section03 .swiper-slide img{line-height: 0; vertical-align: top;}
+		#p_section03 .swiper-pagination{width:100%;text-align:center;position:absolute;left:0;bottom:2%; }
+		#p_section03 .swiper-pagination-bullet{width:6px;height:6px;margin:0 5px;background:transparent;border:2px #000 solid;border-radius:100%;opacity:1}
+		#p_section03 .swiper-pagination-bullet-active{border:2px #000 solid;opacity:1;background:#000;}
+		#p_section03 .swiper-button-prev{opacity:1;width:40px;height:40px;z-index:10;top:47%;background-color:transparent;background-size:30px 20px;margin-top:-20px;left:0}
+		#p_section03 .swiper-button-next{opacity:1;width:40px;height:40px;z-index:10;top:47%;background-color:transparent;background-size:30px 20px;margin-top:-20px;right:0}
+
+		#p_section04{margin-top:5%; margin-bottom: 5%;}
+		#p_section04 .contents{position:relative;  width:95%; margin-left:2.5%;}
+		#p_section04 .slider_wrap{position:absolute;overflow:hidden; width:80%; left:10%; top:36%;}
+		#p_section04 .swiper-container {overflow:hidden;position:relative}
+		#p_section04 .swiper-wrapper {width:100%;height:100%}
+		#p_section04 .swiper-button-disabled {opacity:0 !important;}
+		#p_section04 .swiper-slide {overflow:hidden;position:relative}
+		#p_section04 .swiper-slide img{line-height: 0; vertical-align: top;}
+		#p_section04 .swiper-pagination{width:100%;text-align:center;position:absolute;left:0;bottom:2%; display: none; }
+		#p_section04 .swiper-pagination-bullet{width:6px;height:6px;margin:0 5px;background:transparent;border:2px #000 solid;border-radius:100%;opacity:1}
+		#p_section04 .swiper-pagination-bullet-active{border:2px #000 solid;opacity:1;background:#000;}
+		#p_section04 .swiper-button-prev{opacity:1;width:40px;height:40px;z-index:10;top:60%;background-color:transparent;background-size:30px 20px;margin-top:-20px;left:0}
+		#p_section04 .swiper-button-next{opacity:1;width:40px;height:40px;z-index:10;top:60%;background-color:transparent;background-size:30px 20px;margin-top:-20px;right:0}
+	</style>
+	<script type="text/javascript">
+		<!--
+		var menuH;
+		window.onload = function(){
+			menuH = $("#p_navi_cnt ul li img").height();
+			$("#p_navi").css("height",menuH);
+			$("#review_popup").css("top",menuH);
+		};
+		$(window).resize(function(){
+			menuH = $("#p_navi_cnt ul li img").height();
+			$("#p_navi").css("height",menuH);
+			$("#review_popup").css("top",menuH);
+		});
+		$(document).ready(function(){
+			// when scroll
+			$(window).scroll(function(){
+				var num = 0;
+				var aboveHeight = $("#p_navi").offset().top;
+				var menuPos = new Array;
+				var menuLength = $("#p_navi_area li").length-1;
+
+				locate = $(window).scrollTop();
+				locate2 = $(window).scrollTop()+menuH; // 마지막 네비높이
+
+				//scrolled down header's height
+				if (locate >= aboveHeight){
+					$("#p_navi_area").addClass('fixed');
+				} else {
+					$("#p_navi_area").removeClass('fixed');
+				};
+			});
+		});
+		//-->
+		//상단으로 올라가는 스크립트
+		function scrollTop_fun(){
+			$('html, body').animate({scrollTop: 0}, 400);
+		}
+
+
+		function notice_on(_mc){
+			$(_mc).find(".btn_off").css("display" ,"none")
+			$(_mc).find(".btn_on").css("display" ,"block")
+			//$(_mc).find(".msg").css("display" ,"block")
+			$(_mc).find(".msg").slideDown(300,'easeInOutQuad');
+		}
+		function notice_off(_mc){
+			$(_mc).find(".btn_off").css("display" ,"block")
+			$(_mc).find(".btn_on").css("display" ,"none")
+			//$(_mc).find(".msg").css("display" ,"none")
+			$(_mc).find(".msg").slideUp(400,'easeInOutQuad');
+		}
+	</script>
+</head>
+<body>
+
+	<div id="p_header" class="p_cnt">
+		<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_top_01.jpg" alt=""/>
+		<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_top_02.jpg" alt=""/>
+	</div>
+
+	<div id="p_navi">
+		<div id="p_navi_area">
+			<div id="p_navi_cnt">
+				<ul>
+					<li><a href="javascript:scrollTop_fun()"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_menu_01_on.jpg" alt="" /></a></li>
+					<li><a href="http://promotion.auction.co.kr/promotion/md/eventview.aspx?txtmd=095E70B5D3&pageNum=0101000" target="_parent"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_menu_02_off.jpg" alt="" /></a></li>
+					<li><a href="http://promotion.auction.co.kr/promotion/md/eventview.aspx?txtmd=095E70B02A&pageNum=0201000" target="_parent"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_menu_03_off.jpg" alt="" /></a></li>
+					<li><a href="http://promotion.auction.co.kr/promotion/md/eventview.aspx?txtmd=08B387D8A5&pageNum=0301000" target="_parent"><img src="http://eventimg.auction.co.kr/md/auction/095E70B02A/m_menu_04_off.jpg" alt="" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!--추천딜 영역-->
+	<div id="p_section01" class="p_cnt">
+		<div class="slider_wrap">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+
+					<div class="swiper-slide">
+						<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_week_deal_img.jpg" alt=""/>
+						<a href="#" target="_parent"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_week_deal_img_info.jpg" alt="금주의 여가딜 구매하기 버튼"/></a>
+					</div>
+					<div class="swiper-slide">
+						<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_nextweek_deal_img.jpg" alt=""/>
+						<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_nextweek_deal_img_info.jpg" alt=""/>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Add Arrows -->
+			<div class="swiper-button-next swiper-button-white"></div>
+			<div class="swiper-button-prev swiper-button-white"></div>
+
+			<div class="swiper-pagination"></div>
+		</div>
+
+		<script>
+			var swiper01 = new Swiper('#p_section01 .slider_wrap .swiper-container', {
+				autoplay : false,
+				nextButton: '#p_section01 .slider_wrap .swiper-button-next',
+				prevButton: '#p_section01 .slider_wrap .swiper-button-prev',
+				pagination: '#p_section01 .swiper-pagination',
+				paginationClickable: true,
+				loop: false,
+				autoHeight: true,
+				spaceBetween: 0
+			});
+		</script>
+	</div>
+	<!--추천딜 영역 끝-->
+
+	<!--쿠폰영역-->
+	<div id="p_section02" class="p_cnt">
+		<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_month_tit.jpg" alt="5월의 혜택"/>
+		<div class="couponBox">
+			<div class="rel">
+				<div class="rel">
+					<!--개발 : 쿠폰 버튼-->
+					<iframe class="couponBtn"  src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_couponBtn.html" width="100%"  scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+					<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_coupon_img.jpg" alt="10,000"/>
+				</div>
+				<div class="notice_box">
+					<a href="javascript:notice_on('.notice_box')"><img class="btn_off" src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_coupon_notice_btn_off.jpg"></a>
+					<a href="javascript:notice_off('.notice_box')"><img class="btn_on" src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_coupon_notice_btn_on.jpg"></a>
+					<p class="msg"><img  src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_coupon_notice_img.jpg" alt="쿠폰에대한 안내"></p>
+				</div>
+				<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_coupon_img_bot.jpg" alt=""/>
+			</div>
+		</div>
+	</div>
+	<!--쿠폰영역 끝-->
+
+	<!--5월의 추천테마-->
+	<div id="p_section03" class="p_cnt">
+		<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_month_tit2.jpg" alt=""/>
+		<div class="slider_wrap">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+
+					<div class="swiper-slide">
+						<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme01_01.jpg" alt=""/>
+						<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme01_02.jpg" alt=""/>
+					</div>
+
+					<div class="swiper-slide">
+						<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme02_01.jpg" alt=""/>
+						<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme02_02.jpg" alt=""/>
+					</div>
+
+					<div class="swiper-slide">
+						<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme03_01.jpg" alt=""/>
+						<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme03_02.jpg" alt=""/>
+					</div>
+					
+
+				</div>
+			</div>
+
+			<!-- Add Arrows -->
+			<div class="swiper-button-next swiper-button-white"></div>
+			<div class="swiper-button-prev swiper-button-white"></div>
+
+			<div class="swiper-pagination"></div>
+		</div>
+
+		<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme04_01.jpg" alt="YOLO 추천상품1 상단"/>
+		<a href="#" target="_parent"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme04_02.jpg" alt="YOLO 추천상품1 하단"/></a>
+
+		<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme05_01.jpg" alt="YOLO 추천상품2 상단"/>
+		<a href="#" target="_parent"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme05_02.jpg" alt="YOLO 추천상품2 하단"/></a>
+
+		<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme06_01.jpg" alt="YOLO 추천상품3 상단"/>
+		<a href="#" target="_parent"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme06_02.jpg" alt="YOLO 추천상품3 하단"/></a>
+
+		<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme07_01.jpg" alt="YOLO 추천상품4 상단"/>
+		<a href="#" target="_parent"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme07_02.jpg" alt="YOLO 추천상품4 하단"/></a>
+
+		<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme08_01.jpg" alt="YOLO 추천상품5 상단"/>
+		<a href="#" target="_parent"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_theme08_02.jpg" alt="YOLO 추천상품5 하단"/></a>
+
+		<script>
+			var swiper02 = new Swiper('#p_section03 .slider_wrap .swiper-container', {
+				autoplay : false,
+				nextButton: '#p_section03 .slider_wrap .swiper-button-next',
+				prevButton: '#p_section03 .slider_wrap .swiper-button-prev',
+				pagination: '#p_section03 .swiper-pagination',
+				paginationClickable: true,
+				loop: true,
+				autoHeight: true,
+				spaceBetween: 0
+			});
+		</script>
+	</div>
+	<!--5월의 추천테마 끝-->
+
+
+	<!--sns 이벤트 영역-->
+	<div id="p_section04" class="p_cnt">
+		<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_sns_tit.jpg" alt="sns이벤트"/>
+		<div class="rel contents">
+			<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_sns_top.jpg" alt="금주의 포토제닉 선발대회"/>
+			<div class="slider_wrap">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+
+						<div class="swiper-slide">
+							<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_sns_step_01.jpg" alt=""/>
+						</div>
+						<div class="swiper-slide">
+							<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_sns_step_02.jpg" alt=""/>
+						</div>
+						<div class="swiper-slide">
+							<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_sns_step_03.jpg" alt=""/>
+						</div>
+
+
+					</div>
+				</div>
+
+				<div class="swiper-pagination"></div>
+			</div>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next swiper-button-white"></div>
+			<div class="swiper-button-prev swiper-button-white"></div>
+
+
+			<img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_sns_step_bg.jpg" alt=""/>
+			<a href="#" target="_parent"><img src="http://eventimg.auction.co.kr/md/auction/095E73DCE0/m_sns_btn.jpg" alt=""/></a>
+		</div>
+
+
+
+
+		<script>
+			var swiper03 = new Swiper('#p_section04 .slider_wrap .swiper-container', {
+				autoplay : false,
+				nextButton: '#p_section04 .swiper-button-next',
+				prevButton: '#p_section04 .swiper-button-prev',
+				pagination: '#p_section04 .swiper-pagination',
+				paginationClickable: true,
+				loop: true,
+				autoHeight: true,
+				spaceBetween: 0
+			});
+		</script>
+
+
+	</div>
+	<!--sns 이벤트 영역 끝-->
+
+</body>
+</html>

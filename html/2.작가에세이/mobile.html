@@ -38,21 +38,24 @@
 	<script type="text/javascript">
 		//url  ==> mobile_sample.html?pageNum=0101000
 		//pageNum : 7자리 활성화 코드
-            
+
+		var str = location.href;
+		var pageNum = str.split("pageNum=")[1].substr(0,7)
+		var gnb_ifm;
 		window.onload = function(){
 			naviaddChild() // 네비게이션 만들기
-            
-			//$("#p_navi").css("height",menuH);		
-			enterFrameFun();            
+
+			//$("#p_navi").css("height",menuH);
+			enterFrameFun();
 		}
 
 		$(window).resize(function(){
-			//$("#p_navi").css("height",menuH);			
+			//$("#p_navi").css("height",menuH);
 			enterFrameFun()
 		})
 
 		$(document).ready(function(){
-			var gnb_ifm = getIframeContent('navi_obj');
+			gnb_ifm = getIframeContent('navi_obj');
 
 			// when scroll
 			$(window).scroll(function(){
@@ -67,32 +70,40 @@
 				if (locate >= aboveHeight){
 					$("#p_navi_area").addClass('fixed');
 					gnb_ifm.viewMenu("n")
-					gnb_ifm.resizeFrame()//gnb 리사이즈 호출
-                    //console.debug("$(#p_navi_area).addClass(fixed); => 네비게이션 접기")
+					gnb_ifm.reSize_parent()//gnb 리사이즈 호출
+					//console.debug("$(#p_navi_area).addClass(fixed); => 네비게이션 접기")
 				} else {
 					$("#p_navi_area").removeClass('fixed');
 					gnb_ifm.viewMenu("y")
-					gnb_ifm.resizeFrame()//gnb 리사이즈 호출
-                   // console.debug("$(#p_navi_area).removeClass(fixed); => 네비게이션 펼치기")
+					gnb_ifm.reSize_parent()//gnb 리사이즈 호출
+					// console.debug("$(#p_navi_area).removeClass(fixed); => 네비게이션 펼치기")
 				}
 				enterFrameFun()
 			});
+			setTimeout(function(){ gnb_ifm.reSize_parent() }, 300);
 		});
-		
+
 		var navi_height;
 		function naviaddChild(){
-			$("#navi_obj").attr("src" , "http://eventimg.auction.co.kr/md/auction/095E70B02A/m_gnb.html?ver=0331_4")
+
+
+			$("#navi_obj").attr("src" , "http://eventv2qadv01am.auction.co.kr/Event3/Stable/TravelStore2/mifrmMenu2.aspx?pageNum="+ pageNum)
+			/*$("#navi_obj").attr("src" , "http://eventimg.auction.co.kr/md/auction/095E70B02A/m_gnb.html?ver=0331_4")*/
 			/*$("#navi_obj").attr("src" , "dev/m_gnb.html")*/
-            //console.debug("index => gnb addChild" + " : " + "dev/m_gnb.html")
+			//console.debug("index => gnb addChild" + " : " + "dev/m_gnb.html")
 			$("#navi_obj").load(function(){
 				//console.debug("메뉴의 세로값 " + " : " + navi_height);
 			})
 			resizeFun()
+
+			setTimeout(function(){ gnb_ifm.reSize_parent() }, 500);
+
+
 		}
-		
+
 		//스크롤 및 리사이즈시 호출되는 함수 :: onload 이후에 실행
 		function enterFrameFun(){
-			$("#p_navi").css("height" , navi_height+"px");//네비게이션이 fixed 처리되고 난후에도 그 공간만큼 잡아줌
+			//$("#p_navi").css("height" , navi_height+"px");//네비게이션이 fixed 처리되고 난후에도 그 공간만큼 잡아줌
 			resizeFun()
 		}
 		function resizeFun(){
@@ -107,6 +118,7 @@
 
 		/*하단 상품 리로드 관련*/
 		function reload_prdList(seven_code){
+			$("#prd_list").attr("src" , "http://eventv2qadv01am.auction.co.kr/Event3/Stable/TravelStore2/mContentsList.aspx?pageNum=" + seven_code)
 			//console.debug("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
 			//alert("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
 		}
@@ -173,16 +185,10 @@
     </div>
 	<!--// 네비게이션영역 여기까지-->
 
-    
 
 	<div id="p_section" class="p_cnt prd_area">
-		<!--하단 컨텐츠 영역-->
-
-
-
-
-
-		<!--여기까지-->
+		<!--컨텐츠 영역-->
+		<iframe id="prd_list" src="" width="100%"  scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 	</div>
 
 </body>
