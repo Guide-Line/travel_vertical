@@ -13,8 +13,17 @@
 
         //url  ==> mobile_sample.html?pageNum=0101000
         //pageNum : 7자리 활성화 코드
+
         var str = location.href;
-        var pageNum = str.split("pageNum=")[1].substr(0,7)
+        var pageNum;
+
+        if(str.indexOf("pageNum") == -1){
+            //없다면
+            pageNum = "0101000";
+        }else{
+            pageNum = str.split("pageNum=")[1].substr(0,7)
+        }
+
 
         window.onload = function(){
             naviaddChild() // 네비게이션 만들기
@@ -51,14 +60,18 @@
                     //console.debug("네비 접기")
                     gnb_ifm.viewMenu("n")
                     $("#navi_obj").css("height" , 75+"px")
+
                     //console.debug("$(#p_navi_area).addClass(fixed); => 네비게이션 접기")
+                    $("#p_navi").css("padding-bottom" , 5+"%");
 
                 } else {
                     $("#p_navi_area").removeClass('fixed');
                     //console.debug("네비 펴기")
                     gnb_ifm.viewMenu("y")
                     $("#navi_obj").css("height" , navi_height+"px")
+
                     //console.debug("$(#p_navi_area).removeClass(fixed); => 네비게이션 펼치기")
+                    $("#p_navi").css("padding-bottom" , 0+"%");
                 }
             });
             setTimeout(function(){  $("#navi_obj").css("height" , navi_height+"px") }, 300);
@@ -69,7 +82,7 @@
         function naviaddChild(){
 
             /*$("#navi_obj").attr("src" , "http://eventimg.auction.co.kr/md/auction/095E70B02A/w_gnb.html?ver=0331_4")*/
-            $("#navi_obj").attr("src" , "http://eventv2qadv01am.auction.co.kr/Event3/Stable/TravelStore2/ifrmMenu2.aspx?pageNum=" + pageNum)
+            $("#navi_obj").attr("src" , "http://eventv2.auction.co.kr/Event3/Stable/TravelStore2/ifrmMenu2.aspx?pageNum=" + pageNum)
             /*$("#navi_obj").attr("src" , "dev/w_gnb.html")*/
 
             //console.debug("index => gnb addChild" + " : " + "dev/w_gnb.html")
@@ -92,7 +105,7 @@
         /*하단 상품 리로드 관련*/
         function reload_prdList(seven_code){
 
-            $("#prd_list").attr("src" , "http://eventv2qadv01am.auction.co.kr/Event3/Stable/TravelStore2/ContentsList.aspx?pageNum=" + seven_code)
+            $("#prd_list").attr("src" , "http://eventv2.auction.co.kr/Event3/Stable/TravelStore2/ContentsList.aspx?pageNum=" + seven_code)
             //console.debug("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
             //alert("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
         }
@@ -107,16 +120,17 @@
         *{margin:0;padding:0;}
         img{border:0;vertical-align:top;}
         li{list-style:none;}
-        #p_header{position: relative; width:100%;}
+        .ifr_sns{top:20px;right:10px;position: absolute; z-index:999}
+        #p_header{position: relative; width:100%; min-width: 1200px;}
         #p_navi{width:100%;/*height:66px*/;position:relative;z-index:300; /*border: 1px solid red;*/}
 
         #p_navi_cnt ul{width:980px;margin:0 auto;overflow:hidden;}
         #p_navi_cnt ul li{width:20%;float:left;text-align:center;}
 
         .p_cnt{position:relative; width:100%;}
-        .inc-obj-1200{position: relative; width:1200px; margin: 0 auto; margin-top: 45px;}
+        .inc-obj-1200{position: relative; width:1200px; margin: 0 auto;}
 
-        .fixed{position:fixed;top:45px;left:0;width:100%;background:#fff;margin:0;z-index:100;}
+        .fixed{position:fixed;top:45px;left:0;width:100%;background:#fff;margin:0;z-index:100; }
 
         /*비주얼이미지*/
         #p_essay{width: 100%;max-width:2000px;margin:0 auto;position: relative;}
@@ -127,8 +141,8 @@
         #p_essay_bg li.visual3{background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg3.jpg) no-repeat 50% 0;opacity: 0}*/
         #p_essay_con{position: absolute;top:0;left: 50%;width: 1200px;height: 500px;margin-left:-600px;z-index: 10;}
         #p_essay_con .top_tit{position: absolute; top:0; z-index: 10;}
-        #p_essay .swiper-button-prev{margin-left:-600px;left:50%;background:url("http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_slide_prev.png") left top no-repeat;width: 70px;  top:160px;z-index: 20;height:140px;position: absolute;cursor:pointer;}
-        #p_essay .swiper-button-next{margin-right:-600px;right:50%;background:url("http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_slide_next.png") left top no-repeat;width: 70px;top:160px;z-index: 20;height: 140px;position: absolute;cursor: pointer;}
+        #p_essay .swiper-button-prev{margin-left:-600px;left:45%;background:url("http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_slide_prev.png") left top no-repeat;width: 70px;  top:160px;z-index: 20;height:140px;position: absolute;cursor:pointer;}
+        #p_essay .swiper-button-next{margin-right:-600px;right:45%;background:url("http://eventimg.auction.co.kr/md/auction/095E70B5D3/m_slide_next.png") left top no-repeat;width: 70px;top:160px;z-index: 20;height: 140px;position: absolute;cursor: pointer;}
         #p_essay .swiper-pagination{bottom:30px;display: none}
         #p_essay .swiper-pagination .swiper-pagination-switch{width: 8px;height: 8px;border:2px solid #fff;background-color: #fff;margin:0 9px;}
         #p_essay .swiper-pagination .swiper-active-switch{background-color: transparent;}
@@ -137,30 +151,56 @@
 <body>
     <!--상단비주얼-->
     <div id="p_header">
+
         <div id="p_essay">
+            <div class="inc-obj-1200">
+                <iframe class="ifr_sns" src="http://eventv2.auction.co.kr/Event3/Regular/SnsShare/top_sns.aspx?GROUPID=20170423" width="56" height="320" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            </div>
             <ul id="p_essay_bg">
-                <!--롤링이미지 배경-->
-                <li class="visual1" style="background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg1.jpg) no-repeat 50% 0;z-index: 1"></li>
-                <li class="visual2" style="background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg2.jpg) no-repeat 50% 0;opacity: 0"></li>
-                <li class="visual3" style="background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg3.jpg) no-repeat 50% 0;opacity: 0"></li>
+                <!--롤링이미지 배경  -->
+                <li class="visual1" style="background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg3.jpg) no-repeat 50% 0;opacity: 1"></li><!--안시내 -->
+                <li class="visual2" style="background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg2.jpg) no-repeat 50% 0;opacity: 0"></li><!--청춘유리 -->
+                <li class="visual3" style="background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg1.jpg) no-repeat 50% 0;z-index: 0"></li><!--태원준 -->
+                <li class="visual4" style="background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg6.jpg) no-repeat 50% 0;opacity: 0"></li><!--김이삭 -->
+                <li class="visual5" style="background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg7.jpg) no-repeat 50% 0;opacity: 0"></li><!--채빈 -->
+                <li class="visual6" style="background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg5.jpg) no-repeat 50% 0;opacity: 0"></li><!--조은수 -->
+                <li class="visual7" style="background:url(http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_bg4.jpg) no-repeat 50% 0;opacity: 0"></li><!--서현지 -->
             </ul>
             <div id="p_essay_con">
                 <img class="top_tit" src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_tit.png" alt="여행가게"/>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <!-- 롤링이미지 이미지 -->
+
                         <div class="swiper-slide">
-                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img1_1.jpg" alt="">
-                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img1_2.jpg" alt="">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img3_1.jpg" alt="안시내">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img3_2.jpg" alt="안시내">
                         </div>
                         <div class="swiper-slide">
-                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img2_1.jpg" alt="">
-                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img2_2.jpg" alt="">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img2_1.jpg" alt="청춘유리">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img2_2.jpg" alt="청춘유리">
                         </div>
                         <div class="swiper-slide">
-                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img3_1.jpg" alt="">
-                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img3_2.jpg" alt="">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img1_1.jpg" alt="태원준">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img1_2.jpg" alt="태원준">
                         </div>
+                        <div class="swiper-slide">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img6_1.jpg" alt="김이삭">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img6_2.jpg" alt="김이삭">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img7_1.jpg" alt="채빈">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img7_2.jpg" alt="채빈">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img5_1.jpg" alt="조은수">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img5_2.jpg" alt="조은수">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img4_1.jpg" alt="서현지">
+                            <img src="http://eventimg.auction.co.kr/md/auction/095E70B5D3/w_top_img4_2.jpg" alt="서현지">
+                        </div>
+
                         <!-- //  -->
                     </div>
                 </div>
@@ -177,7 +217,7 @@
                     pagination:'#p_essay .swiper-pagination',
                     paginationClickable:true,
                     loop:true,
-                    autoplay:3000,
+                    autoplay:10000,
                     calculateHeight:true,
                     autoplayDisableOnInteraction : true,
                     onSlideChangeStart : function(mySwiper){
