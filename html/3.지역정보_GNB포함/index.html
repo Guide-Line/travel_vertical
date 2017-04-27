@@ -10,7 +10,15 @@
         //url  ==> mobile_sample.html?pageNum=0101000
         //pageNum : 7자리 활성화 코드
 
+        var str = location.href;
+        var pageNum;
 
+        if(str.indexOf("pageNum") == -1){
+            //없다면
+            pageNum = "0201000";
+        }else{
+            pageNum = str.split("pageNum=")[1].substr(0,7)
+        }
 
         window.onload = function(){
             naviaddChild() // 네비게이션 만들기
@@ -48,6 +56,7 @@
                     gnb_ifm.viewMenu("n")
                     $("#navi_obj").css("height" , 75+"px")
                     //console.debug("$(#p_navi_area).addClass(fixed); => 네비게이션 접기")
+                    $("#p_navi").css("padding-bottom" , 5+"%");
 
                 } else {
                     $("#p_navi_area").removeClass('fixed');
@@ -55,14 +64,18 @@
                     gnb_ifm.viewMenu("y")
                     $("#navi_obj").css("height" , navi_height+"px")
                     //console.debug("$(#p_navi_area).removeClass(fixed); => 네비게이션 펼치기")
+                    $("#p_navi").css("padding-bottom" , 0+"%");
                 }
             });
+            setTimeout(function(){  $("#navi_obj").css("height" , navi_height+"px") }, 300);
         })
 
         var navi_height;
         function naviaddChild(){
 
-            $("#navi_obj").attr("src" , "http://eventimg.auction.co.kr/md/auction/095E70B02A/w_gnb.html?ver=0331_4")
+            /*$("#navi_obj").attr("src" , "http://eventimg.auction.co.kr/md/auction/095E70B02A/w_gnb.html?ver=0331_4")*/
+                                         
+            $("#navi_obj").attr("src" , "http://eventv2.auction.co.kr/Event3/Stable/TravelStore2/ifrmMenu2.aspx?pageNum=" + pageNum)
             /*$("#navi_obj").attr("src" , "dev/w_gnb.html")*/
 
             //console.debug("index => gnb addChild" + " : " + "dev/w_gnb.html")
@@ -70,25 +83,22 @@
                 //console.debug("메뉴의 세로값 " + " : " + navi_height);
                 //alert("메뉴의 세로값 " + " : " + navi_height);
             })
-
+            setTimeout(function(){  $("#navi_obj").css("height" , navi_height+"px") }, 300);
         }
-
-
-
         //스크롤 및 리사이즈시 호출되는 함수 :: onload 이후에 실행
         function enterFrameFun(){
-
             //prd_top = $(".prd_area").offset().top;
             //$("#p_navi").css("height" , navi_height+"px");//네비게이션이 fixed 처리되고 난후에도 그 공간만큼 잡아줌
 
         }
-        
         /*var totol_num = 15;
         var page_view_num=7;
         alert(Math.ceil(totol_num / page_view_num))*/
 
         /*하단 상품 리로드 관련*/
         function reload_prdList(seven_code){
+
+            $("#prd_list").attr("src" , "http://eventv2.auction.co.kr/Event3/Stable/TravelStore2/ContentsList.aspx?pageNum=" + seven_code)
             //console.debug("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
             //alert("index => reload_prdList(seven_code)  : " + "~~list.aspx?index="+ seven_code); //7자리 값을 받는다
         }
@@ -103,28 +113,35 @@
         *{margin:0;padding:0;}
         img{border:0;vertical-align:top;}
         li{list-style:none;}
-
-        #p_navi{width:100%;/*height:66px*/;position:relative;z-index:300; /*border: 1px solid red;*/}
-
+        .inc-obj{position:relative; width:1200px; margin:0 auto;}
+        #p_header{min-width: 1200px; position: relative; width:100%;}
+        #p_navi{width:100%;/*height:66px*/;position:relative;z-index:300; /*border: 1px solid red;*/  min-width: 1200px;}
+        .ifr_sns{top:20px;right:0px;position: absolute;}
         #p_navi_cnt ul{width:980px;margin:0 auto;overflow:hidden;}
         #p_navi_cnt ul li{width:20%;float:left;text-align:center;}
 
-        .p_cnt{height:1000px;/*border:1px red solid;*/}
 
-        .fixed{position:fixed;top:45px;left:0;width:100%;background:#fff;margin:0;z-index:100;}
+
+        .fixed{position:fixed;top:45px;left:0;width:100%;background:#fff;margin:0;z-index:100; min-width: 1200px;}
 
         /*비주얼이미지*/
-        .visual_1{background: url("http://eventimg.auction.co.kr/md/auction/095E70B02A/w_top_01.jpg") no-repeat center top;height:250px;}
-        .visual_2{background: url("http://eventimg.auction.co.kr/md/auction/095E70B02A/w_top_02.jpg") no-repeat center top;height:251px;}
+        /*.visual_1{background: url("http://eventimg.auction.co.kr/md/auction/095E70B02A/w_top_01.jpg") no-repeat center top;height:250px;}
+        .visual_2{background: url("http://eventimg.auction.co.kr/md/auction/095E70B02A/w_top_02.jpg") no-repeat center top;height:251px;}*/
+        .visual_1{background: url("http://eventimg.auction.co.kr/md/auction/095E70B02A/w_top_01_n.jpg") no-repeat center top;height:250px;}
+        .visual_2{background: url("http://eventimg.auction.co.kr/md/auction/095E70B02A/w_top_02_n.jpg") no-repeat center top;height:280px;}
     </style>
 </head>
 <body>
     <!--상단비주얼-->
     <div id="p_header" style="height:501px;">
+        <div class="inc-obj">
+            <iframe class="ifr_sns" src="http://eventv2.auction.co.kr/Event3/Regular/SnsShare/top_sns.aspx?GROUPID=20170423" width="56" height="320" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+        </div>
         <div class="visual_1"></div>
         <div class="visual_2"></div>
     </div>
     <!--상단비주얼 여기까지-->
+
 
     <!--네비게이션-->
     <div id="p_navi">
@@ -135,12 +152,13 @@
     <!--네비게이션 여기까지-->
 
 
-    <div id="p_section" class="p_cnt" style="height:2000px; background-color: #00549a;">
+    <div id="p_section" class="p_cnt">
         <!--하단 컨텐츠 영역-->
+        <div style="position:relative; width:1200px; margin:0 auto; margin-top:45px; overflow: hidden;">
+            <iframe id="prd_list" src="" width="100%"   scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+        </div>
     </div>
-    <div id="p_section1" class="p_cnt" style="height:2000px; background-color: yellow;">
 
-    </div>
 
 </body>
 </html>
